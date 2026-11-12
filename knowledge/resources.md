@@ -23,6 +23,38 @@
 - TapTap 小游戏引擎适配（developer.taptap.cn）：<https://developer.taptap.cn/minigameapidoc/dev/engine/Cocos-Laya-Egret/>
 - 官方预览文档（[品质与发布控制](../docs/development-sop.md#品质与发布控制) 中引用）：<https://docs.cocos.com/creator/3.8/manual/zh/editor/preview/>
 
+## 2026-11-12 新增
+
+本轮 1 条。不是基础查阅资源，不进入上一节的表。评估为文档核对。未在项目试用。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### Funplay MCP for Cocos v0.7.2
+
+- 资源：Funplay MCP for Cocos v0.7.2（仓库 FunplayAI/funplay-cocos-mcp）
+- 类型：Cocos Creator 编辑器扩展 / MCP 工具（含内置 project skills），不是基础查阅文档
+- 评估：文档核对
+- 采用结论：值得作为 Codex + Cocos 编辑器联调的候选接入点记录。它在 Creator 编辑器内嵌 HTTP MCP 服务，说明支持 Codex，可用 `execute_javascript`（scene / editor 上下文）检查场景、截图、资源与脚本诊断，服务于画风核对与开发测试闭环。v0.7.2 明确修复了 Codex 一键配置对 `$CODEX_HOME` 和空 `[mcp_servers]` 父表的处理，并把 Configure + Skills / Project Skills 覆盖到全部 11 个一键客户端（含 Codex）。内置 skill 为 `funplay-cocos-mcp-workflow` 与 `funplay-cocos-ui-composition`（文档写为 v4 模板）。未在本用户项目试用。
+- 发布/更新日：GitHub Release 与 Cocos 商店页均为 2026-11-10。同一 7 天窗口内还有 2026-11-09 的 v0.7.1；本条以 v0.7.2 为准，不另开一条。v0.7.1（2026-11-09）修复 `refresh_assets` 路径引起的缺资产/meta 错误，以及遗留坐标鼠标输入的释放清理；并正确 README 内置 skill 版本为 v4。
+- 来源链接：见下方本条来源链接
+- 核实日（Asia/Shanghai）：2026-11-12
+- 引擎版本与平台：Cocos 商店页写 Creator 版本要求 v3.8.8；仓库 README 徽章写 3.8+，预览自动化说明针对 3.8.x。4.0 兼容性在已核来源中未说明，待确认。目标平台待确认。README 明确该扩展是 Editor-only，不应作为游戏运行时依赖打进构建包。商店页的 Android / iOS / HTML5 标签不记为该扩展的运行平台。
+- 是否已在项目试用：否
+- 授权：仓库为 MIT License；Cocos 商店页标价为免费。以各站点条款为准。
+- 依赖与权限（仅文档所述）：
+  1. 需在 Cocos Creator 中安装扩展（商店或 GitHub Release zip，并校验 `SHA256SUMS.txt`）。
+  2. 编辑器内嵌 HTTP MCP；README 示例为 `http://127.0.0.1:8765/` ，新项目使用项目派生端口，占用则回退。
+  3. 一键配置会写入 `$CODEX_HOME/config.toml`（默认 `~/.codex/config.toml`），示例为 `[mcp_servers.funplay_cocos]`，`url = "http://127.0.0.1:8765/"`。
+  4. Configure + Skills 可能安装上述内置 skill；旧 Codex 内置可迁移到 `.agents/skills`，不删除原文件。
+  5. 全局安装会写入 `~/.CocosCreator/builtin-extensions/<Creator version>/funplay-cocos-mcp`。
+  6. `execute_javascript` 安全检查默认开启，但不是完整沙箱，可被 `safety_checks: false` 关闭；扩展内没有额外审批开关，MCP 工具会直接执行。文件工具限制在当前项目根目录。
+
+### 本条来源链接
+
+- Funplay MCP for Cocos v0.7.2（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp>
+- v0.7.2 Release（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp/releases/tag/v0.7.2>
+- CHANGELOG（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/main/CHANGELOG.md>
+- README（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/main/README.md>
+- Cocos 商店页（store.cocos.com）：<https://store.cocos.com/app/detail/8913>
+
 ## 相关文档
 
 - [开发 SOP](../docs/development-sop.md)

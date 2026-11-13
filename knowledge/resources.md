@@ -61,3 +61,35 @@
 - [最佳实践缺口自查](../docs/best-practices-checklist.md)
 - [新资源记录模板](resource-record-template.md)
 - [知识维护约束](../AGENTS.md)
+
+## 2026-11-13 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在项目试用，未安装。以下只记录已打开的文档，本仓库不克隆、不编译、不执行该 CLI。
+
+### Cocos CLI（官方）0.2.0-beta.1
+
+- 资源：Cocos CLI（官方）0.2.0-beta.1（仓库 cocos/cocos-cli）
+- 类型：官方命令行工具，不是基础查阅文档
+- 评估：文档核对
+- 采用结论：已打开的文档列出命令行 `cocos build`（平台示例为 web-desktop、web-mobile、android、ios 等）、全局选项 `--no-interactive`，以及 `cocos start-mcp-server`。这些用法不经过编辑器界面，可供 Codex 不开编辑器直接构建并检查项目。对应 [开发 SOP](../docs/development-sop.md#品质与发布控制) 中尽早在真实目标平台构建，以及短任务模板里把构建日志作为证据。`docs/zh/commands.md` 的 `cocos build` 另有 `--log-dest` 指定日志文件路径。未试用，未安装。
+- 发布/更新日：GitHub Release 发布于 2026-11-12（页面时间为 2026-11-12T13:04:57Z）。版本号为 0.2.0-beta.1，仍是 beta。
+- 来源链接：见下方本条来源链接。链接均指向 tag `0.2.0-beta.1`，本轮打开返回正常。
+- 核实日（Asia/Shanghai）：2026-11-13
+- 引擎版本与平台：`docs/zh/commands.md` 点名的构建平台是 web-desktop、web-mobile、android、ios 等，未点名微信、TapTap 等小游戏目标。`README-zh.md`、`docs/zh/quick-start.md`、`docs/zh/commands.md` 未说明能否用于现有 Creator 3.x 项目。README 引擎徽章指向 `https://github.com/cocos/cocos4`，原生环境链接指向 Creator 3.8 英文手册；这两处不记成对现有 3.x 项目的兼容结论。目标平台仍待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：仓库为 MIT License。以各站点条款为准。
+- 注意：
+  1. 仍是 beta。
+  2. 安装说明是从源码克隆后编译：`README-zh.md` 要求 Node.js 22.17.0；`docs/zh/quick-start.md` 写 Node.js 22.17.0 或更高版本。tag 内 `.nvmrc` 为 22.17.0。
+  3. 上述三份中文文档未说明能否用于现有 Creator 3.x 项目。
+  4. 上述文档未列出微信、TapTap 等小游戏目标。
+  5. MCP 端口记载不一致：`docs/zh/commands.md` 写 `cocos start-mcp-server` 默认端口 3000；`README-zh.md` 与 `docs/zh/quick-start.md` 的示例为 `--port 9527`。`9527` 也是 `commands.md` 里 `cocos simulator` 预览端口的默认值，与 MCP 默认端口不是同一处说明。
+
+### 本条来源链接
+
+- Cocos CLI（github.com/cocos）：<https://github.com/cocos/cocos-cli>
+- 0.2.0-beta.1 Release（github.com/cocos）：<https://github.com/cocos/cocos-cli/releases/tag/0.2.0-beta.1>
+- README-zh.md（tag 0.2.0-beta.1）：<https://github.com/cocos/cocos-cli/blob/0.2.0-beta.1/README-zh.md>
+- docs/zh/quick-start.md（tag 0.2.0-beta.1）：<https://github.com/cocos/cocos-cli/blob/0.2.0-beta.1/docs/zh/quick-start.md>
+- docs/zh/commands.md（tag 0.2.0-beta.1）：<https://github.com/cocos/cocos-cli/blob/0.2.0-beta.1/docs/zh/commands.md>

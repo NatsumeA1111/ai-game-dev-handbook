@@ -93,3 +93,42 @@
 - README-zh.md（tag 0.2.0-beta.1）：<https://github.com/cocos/cocos-cli/blob/0.2.0-beta.1/README-zh.md>
 - docs/zh/quick-start.md（tag 0.2.0-beta.1）：<https://github.com/cocos/cocos-cli/blob/0.2.0-beta.1/docs/zh/quick-start.md>
 - docs/zh/commands.md（tag 0.2.0-beta.1）：<https://github.com/cocos/cocos-cli/blob/0.2.0-beta.1/docs/zh/commands.md>
+
+## 2026-11-16 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在项目试用，未安装。以下只记录已打开的文档，本仓库不安装、不登录、不执行该 CLI。
+
+### TapTap CLI（官方）v2026.11.13
+
+- 资源：TapTap CLI（官方）v2026.11.13（npm 包 `@taptap/cli`）
+- 类型：TapTap 官方命令行工具 / 随版本提供的 AI Agent Skills，不是基础查阅文档，也不是 Cocos 引擎工具
+- 评估：文档核对
+- 采用结论：值得作为 Codex + TapTap 发布与测试流程的候选接入点记录。适用阶段是测试、构建后的包体管理与发布（资料 / 包体 / 提审 / 测试计划），不替代 Cocos 工程内构建。官方文档说明这是连接本地环境与 TapTap 开发者中心的 CLI，可直接运行命令，也可配合 AI 助手（README 点名适配 Codex）。它用于创建游戏草稿、维护资料、上架资质、提审发布、包体管理与自测、测试计划和素材库等开发者中心操作，并提供 `taptap-cli app analyze-status`、提审预检与 `--dry-run`。与知识库已强调的区分直接相关：官方更新日志 2026-11-11 写明「可用包体类型中没有小游戏，不代表小游戏功能未开通」，并要求用小游戏包体列表核对开通结果；官方更新日志 2026-11-12 新增 `package-management diagnose-package-type`，用于区分尚未保存包体类型、已保存类型与游戏形态冲突、无需上传包体等情况，诊断只读取不自动修改声明。这些能力服务于开发测试发布流程。未在本用户项目试用。本轮 7 天窗口内的同一工具多个版本合并为一条，以 npm 上最新的 v2026.11.13 为准，不另开 v2026.11.10 / v2026.11.11 / v2026.11.12。
+- 发布/更新日：这个 CLI 本身不是本窗口首次发布（npm 记载包创建于 2026-08-28）。本条记的是最近 7 天内的实质更新。npm 页面记录 v2026.11.13 发布于 2026-11-13T08:57:51.886Z。官方文档更新日志在 2026-11-16 核对时详细记到 2026-11-12（`v2026.11.12`）。同版本包内 CHANGELOG 对 v2026.11.13 只写了 “Improve reliability and usability.”，不补写官方站点日志里没有的功能点。7 天窗口内的实质变更按来源分开记：
+  1. 官方站点更新日志 2026-11-11：更准确地区分小游戏开通状态与包体类型；图片素材交接保留平均色；发布流程维护（不改命令用法）。
+  2. 官方站点更新日志 2026-11-12：新增 `package-management diagnose-package-type`；设置新图片时需同时提供图片地址和完整素材信息（文件大小、格式、宽度、高度及平均色），不能只填地址或自行猜测平均色；命令名称更简洁，旧别名仍可用。
+  3. 包内 CHANGELOG v2026.11.12：与诊断命令、H5 上传前检查已保存包体类型、命令缩名一致。站点日志里的图片完整素材信息要求不记入这条包内 CHANGELOG。
+  4. 包内 CHANGELOG v2026.11.11 主要是文档与测试修订。官方站点 2026-11-11 的小游戏开通说明不记成包内 CHANGELOG 的内容。
+- 来源链接：见下方本条来源链接。各条写明 2026-11-16 的核对结果。
+- 核实日（Asia/Shanghai）：2026-11-16
+- 引擎版本与平台：这是 TapTap 开发者中心 CLI，不是 Cocos 构建工具，引擎版本不适用。目标平台仍待确认。各小游戏平台、TapTap 应用分发、TapTap 小游戏不是同一件事。官方文档将 APK、Windows、H5、Tap 小游戏等当作不同包体/能力路径。包内 README.zh.md 的功能表将包体管理写为「上传和管理 APK、Windows、H5 包」；该表不改写成已列出 Tap 小游戏上传。官方站点更新日志 2026-11-11 讨论了小游戏开通状态与包体类型的区分。当前目标不记成 TapTap 小游戏或 TapTap 应用分发。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：npm 包页与 README 均标 MIT License。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不登录、不执行）：
+  1. npm 分发版要求 Node.js v16+。官方安装命令为 `npm i -g @taptap/cli --registry=https://registry.npmjs.org/`，需全局包写入权限。
+  2. 需已注册并完成必要认证的 TapTap 开发者账号。`taptap-cli auth login` 会在本机保存凭证；授权后 AI 助手可以开发者身份执行写操作。官方安全说明要求先在测试游戏或非生产资料上验证，正式操作前核对 developerId / appId 等。本记录不写入登录凭证。
+  3. AI Skills 随 CLI 一起提供并与当前 CLI 版本严格对应。查看清单用 `taptap-cli skills list`，更新并同步用 `taptap-cli update`。README.zh.md 还写了可在项目根目录运行 `npx skills add taptap/cli -a universal`。
+  4. 写操作（创建游戏、上传包体、提交审核等）支持 `--dry-run` 预览，正式执行常需 `--yes` 与幂等键。
+  5. 包内 README 列出的 Skills 包括：`taptap-cli`、`taptap-suite`、`taptap-identity`、`taptap-publish-game`、`taptap-app-edit`、`taptap-community-management`、`taptap-qualification`、`taptap-asset-library`、`taptap-materials`、`taptap-package-management`、`taptap-dashboard-stats`、`taptap-player-feedback`、`taptap-test-plan`、`taptap-whats-new`、`taptap-official-message-push`、`taptap-game-sign`。这份清单是文档所列，未在本机安装。
+
+### 本条来源链接
+
+- 官方文档（developer.taptap.cn）：<https://developer.taptap.cn/v3/cli/>（2026-11-16 打开为 HTTP 200）
+- 官方更新日志（developer.taptap.cn）：<https://developer.taptap.cn/v3/cli/changelog/>（2026-11-16 打开为 HTTP 200）
+- 官方 Skill 参考（developer.taptap.cn）：<https://developer.taptap.cn/v3/cli/skill-reference/>（2026-11-16 打开为 HTTP 200）
+- 官方命令参考（developer.taptap.cn）：<https://developer.taptap.cn/v3/cli/command-reference/>（2026-11-16 打开为 HTTP 200）
+- npm 包页（www.npmjs.com）：<https://www.npmjs.com/package/@taptap/cli>。本轮已读到包页内容：最新版本 2026.11.13，License MIT，Updated 2026-11-13T08:57:52.122Z。直接 curl 曾返回 403，不记成页面不存在。
+- 包内 CHANGELOG（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@taptap/cli@2026.11.13/CHANGELOG.md>（2026-11-16 打开为 HTTP 200）
+- 包内 README.zh.md（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@taptap/cli@2026.11.13/README.zh.md>（2026-11-16 打开为 HTTP 200）
+- 不作为来源：README 与 npm 元数据提到 `https://github.com/taptap/cli`，2026-11-16 打开为 HTTP 404，公共不可访问。

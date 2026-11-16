@@ -4,6 +4,15 @@
 
 范围是跨游戏可复用的开发流程、品质控制、最佳实践缺口，以及有来源、按等级记录的资源。不收录游戏玩法建议。各小游戏平台、TapTap 应用分发、TapTap 小游戏不是同一件事。
 
+## 从这里开始
+
+1. 在目标游戏仓库填写或链接 [项目档案](templates/project-profile.md)，本库不设置统一 Cocos 版本。
+2. 用 [任务路由](docs/task-routing.md) 选择本次路径，既有功能/缺陷不重走全套原型阶段。
+3. 适用时使用候选技能：[UI 视口回归](.agents/skills/cocos-ui-viewport-check/SKILL.md)、[存档回归](.agents/skills/cocos-save-regression/SKILL.md)。技能在本仓库 `.agents/skills/` 下；目标游戏不会自动发现另一个仓库的技能。当前推荐让 agent 显式读取此仓库中的技能路径（并保留整个知识库 checkout 的相对目录）。单独复制技能目录会丢失支持文档，不作为当前发布方式；需要项目内安装时先打包支持文档并验证链接。不要默认安装到全局。
+4. 用 [验证记录](templates/verification-record.md) 交付，不以文档核对冒充实测。素材导入先读 [素材库对接](docs/asset-library-contract.md)。
+
+首批技能的 [来源和局限](knowledge/practice-evidence.md)：来自实际项目记录，但本轮未在游戏中重新运行，仍是候选，不是已验证的通用自动化。
+
 ## 待确认
 
 - Cocos Creator 版本：待确认
@@ -28,3 +37,7 @@
 2026-11-13 新增 Cocos CLI 0.2.0-beta.1（文档核对）。
 2026-11-16 新增 TapTap CLI v2026.11.13（文档核对）。
 2026-11-16 新增 8 项可复用实践详解（文档核对，未试用）。
+
+## 本库校验
+
+`python3 scripts/validate_handbook.py` 检查本地 Markdown 文件链接及简单技能 frontmatter。它不验证远程网址、锚点、任意 YAML、Cocos 行为或技能效果；游戏测试使用目标项目自己的命令。

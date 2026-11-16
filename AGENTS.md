@@ -19,7 +19,7 @@
 - 工作日约 9:00（北京时间 / Asia/Shanghai）前后 30 分钟检查公开来源。每轮最多记 3 条。无实质新内容不写、不更新记录。
 - 不保证全网覆盖。不新增没有来源链接的资源，也不新增未在来源中出现的行业标准断言。
 - 授权以各站点条款为准。不写入邮箱、凭据或私密账号。
-- 复盘后只把已跑通的重复流程写成 skill。优先方向：Cocos 与 Codex、画风与素材、手感、音效、测试、构建。
+- 复盘后优先把已跑通的重复流程写成 skill；用户明确要求提炼尚未独立前向试用的流程时，只能标候选并记录来源与未测项，不宣称已验证。优先方向：Cocos 与 Codex、画风与素材、手感、音效、测试、构建。
 
 ## 目录
 
@@ -28,3 +28,11 @@
 - `docs/best-practices-checklist.md`：缺口自查
 - `knowledge/resources.md`：已记录的基础查阅资源
 - `knowledge/resource-record-template.md`：新资源记录模板
+
+## 任务入口与证据
+
+- 先读 `docs/task-routing.md`，按任务类型使用 SOP，不把阶段放行变成每步等待。
+- 项目事实填目标游戏的档案（模板 `templates/project-profile.md`），不改本库全局版本为某一游戏版本。
+- 技能位于 `.agents/skills/`；维护来源、适用边界和 `templates/verification-record.md` 证据。
+- `docs/asset-library-contract.md` 对接素材库协议，不复制另一份包规范。
+- 9 点检查文字是维护期望，不代表已配置自动任务。

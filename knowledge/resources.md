@@ -58,6 +58,7 @@
 ## 相关文档
 
 - [开发 SOP](../docs/development-sop.md)
+- [可复用实践详解](../docs/reusable-practices.md)
 - [最佳实践缺口自查](../docs/best-practices-checklist.md)
 - [新资源记录模板](resource-record-template.md)
 - [知识维护约束](../AGENTS.md)
@@ -132,3 +133,32 @@
 - 包内 CHANGELOG（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@taptap/cli@2026.11.13/CHANGELOG.md>（2026-11-16 打开为 HTTP 200）
 - 包内 README.zh.md（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@taptap/cli@2026.11.13/README.zh.md>（2026-11-16 打开为 HTTP 200）
 - 不作为来源：README 与 npm 元数据提到 `https://github.com/taptap/cli`，2026-11-16 打开为 HTTP 404，公共不可访问。
+
+## 2026-11-16 可复用实践来源
+
+同日上一节记录的是 TapTap CLI。本节只补方法来源，不新增工具，也不改写上一节。
+
+正文见 [可复用实践详解](../docs/reusable-practices.md)。评估为文档核对，核实日 2026-11-16（Asia/Shanghai），未在项目试用。这些链接不进入基础查阅资源表。本仓库不安装、不执行这些来源里的软件。
+
+### 本条来源链接
+
+- Project Horseshoe 2008 报告第 4 节（www.projecthorseshoe.com）：<https://www.projecthorseshoe.com/reports/ph08/ph08r4.htm>
+- Rami Ismail，Prototypes & Vertical Slice（ltpf.ramiismail.com，2022-09-26）：<https://ltpf.ramiismail.com/prototypes-and-vertical-slice/>
+- Gabler 等，How to Prototype a Game in Under 7 Days（www.gamedeveloper.com，2005-10-26）：<https://www.gamedeveloper.com/game-platforms/how-to-prototype-a-game-in-under-7-days>
+- Florencio，What you should take out of Pre-Production（www.gamedeveloper.com，2022）：<https://www.gamedeveloper.com/game-platforms/what-you-should-take-out-of-pre-production>
+- Mike Ambinder，Valve's Approach to Playtesting，GDC 2009 PDF（cdn.fastly.steamstatic.com）：<https://cdn.fastly.steamstatic.com/apps/valve/2009/GDC2009_ValvesApproachToPlaytesting.pdf>
+- The Level Design Book，Playtesting（book.leveldesignbook.com）：<https://book.leveldesignbook.com/process/blockout/playtesting>
+- Steve Swink，Principles of Virtual Sensation（www.gamedeveloper.com，2006-11-14）：<https://www.gamedeveloper.com/design/principles-of-virtual-sensation>
+- Creative Commons FAQ（creativecommons.org）：<https://creativecommons.org/faq/>
+- 微信小游戏运行机制（developers.weixin.qq.com）：<https://developers.weixin.qq.com/minigame/dev/guide/runtime/operating-mechanism>
+- 微信小游戏运行性能概述（developers.weixin.qq.com）：<https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-action-runtime-overview.html>
+- 微信小游戏性能评测标准（developers.weixin.qq.com）：<https://developers.weixin.qq.com/minigame/dev/guide/performance/perf-mesure>
+- 微信小游戏代码包（developers.weixin.qq.com）：<https://developers.weixin.qq.com/minigame/dev/guide/base-ability/code-package.html>
+- wx.onHide（developers.weixin.qq.com）：<https://developers.weixin.qq.com/minigame/dev/api/base/app/life-cycle/wx.onHide.html>
+- Cocos Creator 3.8 项目预览调试（docs.cocos.com）：<https://docs.cocos.com/creator/3.8/manual/zh/editor/preview/>
+- Cocos Creator 3.8 性能剖析器（docs.cocos.com）：<https://docs.cocos.com/creator/3.8/manual/zh/advanced-topics/profiler.html>
+- Cocos Creator 3.8 多分辨率适配（docs.cocos.com）：<https://docs.cocos.com/creator/3.8/manual/zh/ui-system/components/engine/multi-resolution.html>
+- Cocos Creator 3.8 SafeArea（docs.cocos.com）：<https://docs.cocos.com/creator/3.8/manual/zh/ui-system/components/editor/safearea.html>
+- Android Core app quality guidelines（developer.android.com，页面写明 Last updated 2026-11-13 UTC）：<https://developer.android.com/docs/quality-guidelines/core-app-quality>
+- Simon Tatham，How to Report Bugs Effectively（www.chiark.greenend.org.uk）：<https://www.chiark.greenend.org.uk/~sgtatham/bugs.html>
+- Codex 定制说明（已在基础查阅资源中，不另开条目）：<https://learn.chatgpt.com/docs/customization/overview>

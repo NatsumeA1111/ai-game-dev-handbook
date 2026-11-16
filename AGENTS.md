@@ -24,6 +24,7 @@
 ## 目录
 
 - `docs/development-sop.md`：一人开发 SOP、品质与发布控制、文档最小集与短任务模板
+- `docs/reusable-practices.md`：跨游戏可复用实践详解（文档核对的方法，不是已试用结论）
 - `docs/best-practices-checklist.md`：缺口自查
 - `knowledge/resources.md`：已记录的基础查阅资源
 - `knowledge/resource-record-template.md`：新资源记录模板

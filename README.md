@@ -13,6 +13,10 @@
 
 首批技能的 [来源和局限](knowledge/practice-evidence.md)：来自实际项目记录，但本轮未在游戏中重新运行，仍是候选，不是已验证的通用自动化。
 
+## 角色与动作候选流程
+
+[角色设计与动作技能](.agents/skills/character-motion-pipeline/SKILL.md) 配合 [项目规范模板](templates/character-motion-profile.md) 使用，覆盖母稿/视角、模型与任务记录、质检、透明帧、共框脚锚、真实尺寸和引擎同步。模型按项目配置，H3 不是通用强制项。[来源与当前限制](knowledge/character-motion-evidence.md) 明确：原项目动作尚未端到端通过，最新顺序为先静态设计、用户确认母稿、再动作；此前动作试验已停止，本文档不启动生成或改游戏资产。
+
 ## 待确认
 
 - Cocos Creator 版本：待确认

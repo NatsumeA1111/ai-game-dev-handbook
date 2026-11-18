@@ -162,3 +162,46 @@
 - Android Core app quality guidelines（developer.android.com，页面写明 Last updated 2026-11-13 UTC）：<https://developer.android.com/docs/quality-guidelines/core-app-quality>
 - Simon Tatham，How to Report Bugs Effectively（www.chiark.greenend.org.uk）：<https://www.chiark.greenend.org.uk/~sgtatham/bugs.html>
 - Codex 定制说明（已在基础查阅资源中，不另开条目）：<https://learn.chatgpt.com/docs/customization/overview>
+
+## 2026-11-17 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未购买、未安装、未在项目试用。以下只记录已打开的商店页与作者论坛说明，本仓库不购买、不下载、不安装、不执行该插件。
+
+### Cocos MCP AI Master v1.0.0
+
+- 资源：Cocos MCP AI Master v1.0.0（Cocos Store 商品 10014，作者 GameAIMaster）
+- 类型：Cocos Creator 编辑器扩展 / MCP 工具（付费商店插件），不是基础查阅文档，也不是官方 Cocos/Codex 产品
+- 评估：文档核对
+- 采用结论：值得作为 Codex + Cocos 编辑器联调的候选接入点记录。商店与作者说明这是 Creator 3.8.8 编辑器扩展，把编辑器操作封装为 MCP，供 AI 编程 Agent 调用；接入说明点名 Codex CLI（名单出自商店与作者说明）。文档所述能力用于经编辑器操作修改场景、界面、动画、资源与脚本（不直接改项目私有格式文件），核对节点结构、组件属性、界面布局、运行画面与构建结果并报差异，以及构建、预览和玩家视角截图，服务于开发中的画风与布局核对、构建试玩闭环。未在本用户项目试用。与已记录的 Funplay MCP for Cocos v0.7.2 不是同一产品，本条不改写该条目。本产品是 Cocos Store 付费闭源商店插件，商店与作者均写明仅支持 Creator 3.8.8，启用需激活码，且未发现公开源代码仓库。本库的 Creator 版本仍待确认。
+- 发布/更新日：商店页可见「最近更新时间 2026-11-16」，版本 v1.0.0，Creator 版本要求 v3.8.8。商店页面数据 `3x_version_data.update_time` = 1794818163，即 2026-11-16T08:36:03Z，也就是 2026-11-16 16:36:03（Asia/Shanghai）。作者论坛帖由 GameAIMaster 发表于 2026-11-16，更新声明写 1.0.0 为「首个正式版本」。作者同日回复写明当天提交商店并已审核通过，并给出商店链接。这是本 7 天窗口内的首次公开发布，不是对已有条目的版本更新。
+- 来源链接：见下方本条来源链接。商店页与作者论坛帖在 2026-11-17 打开均为 HTTP 200。未发现公开源代码仓库。
+- 核实日（Asia/Shanghai）：2026-11-17
+- 引擎版本与平台：商店 dependency 与 Creator 版本要求为 3.8.8。作者说明其他 3.x 需升级到 3.8.8 并能正常打开后才可接入；本条只转录该文档要求。文档写操作系统为 Windows x64、macOS（Intel 与 Apple 芯片）。商店「支持平台」显示 Android | IOS | HTML5；本条只记该商店标签。作者文档提到「按平台构建发布」，未点名微信或 TapTap。本库 Creator 版本与目标平台仍待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：专有许可（著作权归作者，购买获得自用授权）。商店商品说明「许可声明」写明：插件包、源码与文档的著作权归作者所有；购买获得的是在购买者自己的项目中使用本插件的授权。未经作者书面许可，不得复制、转售、再分发插件包或源码，也不得将本插件代码或其衍生代码用于其他产品。商店个人标价 ¥288.00（`price_person` = 288.00）。2026-11-17 核对日所见限时折扣为 ¥188（`discount_price_zh` = 188），开始于 2026-11-16 00:00:00（Asia/Shanghai，时间戳 1794758400），结束于 2026-12-16 00:00:00（Asia/Shanghai，时间戳 1797350400）。折扣可能过期，只记核对日所见。商店文案写付费虚拟商品一经购买成功概不退款。以各站点条款为准。未购买。
+- 依赖与权限（仅文档所述，本仓库不购买、不下载、不安装、不执行）：
+  1. 需先安装 Cocos Creator 3.8.8；插件无法独立运行。本库 Creator 版本仍待确认。
+  2. 需在 Cocos Store 购买并下载 zip；从「已购资源」下载，保持压缩包导入，先不要解压；经「扩展」→「扩展管理器」导入。项目级扩展，每个项目各装一次。
+  3. Cocos Store 下单付费后需向作者客服索取激活码，在 MCP Server 面板激活后才能启用。本记录不写具体联系方式。
+  4. 默认接入端点为 `http://127.0.0.1:3600/mcp`。端口被占用时自动调整，以面板提示为准。面板提供「自动配置」。作者给出的配置示例：
+
+     ```json
+     {
+       "mcpServers": {
+         "cocos-mcp": {
+           "url": "http://127.0.0.1:3600/mcp"
+         }
+       }
+     }
+     ```
+
+  5. 使用编辑器内置 Node.js。文档写无需单独安装 Node.js。不提供 AI 大模型 API。
+  6. 支持本机、局域网或用户自行配置的隧道。插件不提供隧道服务。
+  7. 商店与作者说明点名可接入 Codex CLI。同页还有其他客户端，本条不展开整份名单。
+
+### 本条来源链接
+
+- 官方商店页（store.cocos.com）：<https://store.cocos.com/app/detail/10014>（2026-11-17 打开为 HTTP 200）
+- 作者论坛说明（forum.cocos.org，GameAIMaster，2026-11-16）：<https://forum.cocos.org/t/topic/178155>（2026-11-17 打开为 HTTP 200）
+- 未发现公开 GitHub 或其它源代码仓库，本条不编造仓库地址。

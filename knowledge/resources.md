@@ -205,3 +205,40 @@
 - 官方商店页（store.cocos.com）：<https://store.cocos.com/app/detail/10014>（2026-11-17 打开为 HTTP 200）
 - 作者论坛说明（forum.cocos.org，GameAIMaster，2026-11-16）：<https://forum.cocos.org/t/topic/178155>（2026-11-17 打开为 HTTP 200）
 - 未发现公开 GitHub 或其它源代码仓库，本条不编造仓库地址。
+
+## 2026-11-18 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在项目试用，未安装。以下只记录已打开的 tag `v2.0.0` 文档，本仓库不安装、不执行该技能包。
+
+### awesome-gamedev-agent-skills v2.0.0
+
+- 资源：awesome-gamedev-agent-skills v2.0.0（仓库 gamedev-skills/awesome-gamedev-agent-skills）
+- 类型：开源 Agent Skills 技能包（含 router 与学科/引擎/类型/工作流技能），不是基础查阅文档，也不是 Cocos 官方或 Codex 官方产品
+- 评估：文档核对
+- 采用结论：值得作为跨引擎「画风 / 手感 / 音效」方法技能的候选记录，供 Codex 在讨论设计与开发时按需读取。采用理由只针对学科技能，不针对类型（genre）技能，也不提供玩法建议。已打开的 v2.0.0 文档说明：共 79 个技能 + 一个 router；`npx skills add gamedev-skills/awesome-gamedev-agent-skills` 会安装 router 和全部 79 个技能。README 写明同一套 `SKILL.md` 可在 OpenAI Codex 等客户端原生加载；手拷贝时 Codex 的技能目录是 `.agents/skills/`（与 Gemini CLI、GitHub Copilot、Antigravity 共用该路径）。与本库痛点直接相关、且文档称为可跨引擎的学科技能包括：`create-game-assets`（先锁定视觉目标/风格说明与资产清单，再成套制作并做检查，而不是一次生成即视为可发布）、`game-feel`（震屏、顿帧、缓动、挤压拉伸、击退与分层视听反馈等）、`audio-design`（总线布局、响度、闪避、自适应音乐与音效变化；文档里的 Godot / Unity / FMOD/Wwise 映射是例子）。文档列出的 12 个受检引擎是 Godot、Unity、Unreal、Ebitengine、Phaser、PixiJS、three.js、Bevy、pygame、LÖVE、Defold、Roblox。`docs/VERSION-SUPPORT.md`（核实日 2026-11-11）没有 Cocos / Cocos Creator。本条不写成兼容 Cocos，也不把其中的 Unity / Godot / Phaser / 通用 Web 技能当作 Cocos 实现。router 对「自定义 / 专有 / 无目录技能的引擎」的路径（`router/references/custom-engines.md` 与 router SKILL §7）要求：保持现有引擎与工具链；学科技能描述的是可移植方法，其中点名的 Godot/Unity 绑定只是例子，不是要求安装或迁移到那些引擎；不要把未知引擎做成 Godot 脚手架。Cocos 项目若未被识别为这 12 个引擎之一，应走这条路径，而不是套用其它引擎技能里的 API。README 也提醒：若代理已有很多技能，优先只装 router 与「你的引擎」捆绑，而不是全部安装。该仓库没有 Cocos 引擎捆绑。本条不建议把 79 个技能整包装进用户的游戏仓库。未在本用户项目试用，未安装。
+- 发布/更新日：GitHub Release `v2.0.0` 发布于 2026-11-11T14:00:52Z，即 2026-11-11 22:00:52（Asia/Shanghai）。这是相对 2026-06-26 的 v1.1.0 的一次实质更新（质量重写 + 新技能 + 路由与评测），不是本窗口内对已有本库条目的版本修订（本库此前未记录该仓库）。默认分支在 v2.0.0 之后还有 2026-11-11 / 2026-11-12 的 README 横幅与赞助商文档提交，没有更新的 Release。本条以 tag `v2.0.0` 为准，不把默认分支未发布提交记成新版本。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-18 打开为 HTTP 200。除仓库首页外，链接都指向 tag `v2.0.0`。
+- 核实日（Asia/Shanghai）：2026-11-18
+- 引擎版本与平台：该技能包不是 Cocos 构建或编辑器工具。官方受检引擎不含 Cocos，Cocos 兼容性未在来源中建立，记为不适用 / 未支持。本库的 Creator 版本与目标平台仍待确认。文档中的 Godot / Unity / 其它引擎基线不记成用户项目版本。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：Apache License 2.0（仓库 LICENSE 与 GitHub 元数据）。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. 使用官方安装命令需要 Node.js 22.20 或更高版本（README）。命令为 `npx skills add gamedev-skills/awesome-gamedev-agent-skills`；`--list` 可先预览，`-g` 为全局，`-a <agent>` 指定客户端。README 举例有 `-a cursor`、`-a claude-code`、`-a gemini-cli`。
+  2. 该命令会把 router 和全部 79 个技能写到客户端对应目录。手拷贝时，Codex 为项目内 `.agents/skills/`。
+  3. 另有 Claude Code 插件市场安装方式；本条只转录，不展开为推荐。
+  4. 本知识库与本轮自动化都不得替用户安装这些技能。
+
+### 本条来源链接
+
+- 仓库（github.com/gamedev-skills）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills>（2026-11-18 打开为 HTTP 200）
+- Release v2.0.0（github.com/gamedev-skills）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/releases/tag/v2.0.0>（2026-11-18 打开为 HTTP 200；Published 2026-11-11T14:00:52Z）
+- CHANGELOG（tag v2.0.0 raw）：<https://raw.githubusercontent.com/gamedev-skills/awesome-gamedev-agent-skills/v2.0.0/CHANGELOG.md>（2026-11-18 打开为 HTTP 200）
+- README（tag v2.0.0 raw）：<https://raw.githubusercontent.com/gamedev-skills/awesome-gamedev-agent-skills/v2.0.0/README.md>（2026-11-18 打开为 HTTP 200）
+- LICENSE（tag v2.0.0 raw）：<https://raw.githubusercontent.com/gamedev-skills/awesome-gamedev-agent-skills/v2.0.0/LICENSE>（2026-11-18 打开为 HTTP 200，Apache License 2.0）
+- 自定义引擎路径（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/router/references/custom-engines.md>（2026-11-18 打开为 HTTP 200）
+- router SKILL（tag v2.0.0，§7 为未知引擎回退）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/router/SKILL.md>（2026-11-18 打开为 HTTP 200）
+- 版本支持表（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/docs/VERSION-SUPPORT.md>（2026-11-18 打开为 HTTP 200）
+- create-game-assets（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/create-game-assets/SKILL.md>（2026-11-18 打开为 HTTP 200）
+- game-feel（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/game-feel/SKILL.md>（2026-11-18 打开为 HTTP 200）
+- audio-design（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/audio-design/SKILL.md>（2026-11-18 打开为 HTTP 200）

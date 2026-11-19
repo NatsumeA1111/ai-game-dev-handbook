@@ -242,3 +242,44 @@
 - create-game-assets（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/create-game-assets/SKILL.md>（2026-11-18 打开为 HTTP 200）
 - game-feel（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/game-feel/SKILL.md>（2026-11-18 打开为 HTTP 200）
 - audio-design（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/audio-design/SKILL.md>（2026-11-18 打开为 HTTP 200）
+
+## 2026-11-19 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### Funplay MCP for Cocos v0.7.5
+
+- 资源：Funplay MCP for Cocos v0.7.5（仓库 FunplayAI/funplay-cocos-mcp）
+- 类型：Cocos Creator 编辑器扩展 / MCP 工具（含内置 project skills），不是基础查阅文档
+- 评估：文档核对
+- 采用结论：这是已记录的 Codex + Cocos 编辑器联调候选接入点的实质更新，值得追加文档核对。README（tag v0.7.5）写明：内置 skill 仍是 `funplay-cocos-mcp-workflow`（v4）与 `funplay-cocos-ui-composition`（现为 v5）；Project Skills 覆盖全部 12 个一键客户端（含 Antigravity）；Codex 与 Antigravity 共用 `.agents/skills`，可迁移旧内置 skill 且保留原文件。UI v5 覆盖把整页设计稿拆成可编辑 prefab，并按区域做忠实度检查，有助于画风/界面一致性核对。v0.7.4 的 Game View 截图修复与此核对相关。v0.7.5 让 Codex 可与 Antigravity 共用 `.agents/skills` 的一键安装。未在本用户项目试用。本条不改写 2026-11-12 的 v0.7.2 记录。
+- 发布/更新日：GitHub Release v0.7.5 发布于 2026-11-18T10:00:29Z，CHANGELOG 日期为 2026-11-18。本条以 v0.7.5 为准。同一 7 天窗口内还有 v0.7.3 与 v0.7.4，不另开条目。
+  1. CHANGELOG 写 v0.7.3 为 2026-11-17，GitHub Release 发布于 2026-11-18T04:36:30Z。新增内置 Cocos UI Skill v5：引导把整页设计稿转成可编辑、响应式 prefab；覆盖资源复用、独立导航层、可复用列表行，并按区域对照 Cocos 预览截图做忠实度检查；缺图时可选生图。
+  2. CHANGELOG 写 v0.7.4 为 2026-11-17，GitHub Release 发布于 2026-11-18T06:44:31Z。修复 #28：Game View 截图能识别 Windows 风格路径和 URL 编码的 WebView preload 路径；游戏截图使用可见的原生 Game View 或 Cocos GameCanvas；没有游戏渲染表面时报错。
+  3. v0.7.5：为 Google Antigravity 提供一键 MCP 配置，把项目级 Streamable HTTP 端点写入 `.agents/mcp_config.json`；Configure + Skills 会把缺失的内置 skill 安装到 `.agents/skills`，Antigravity 与 Codex 都可发现该目录。
+  2026-11-19 打开的 Cocos 商店页显示版本 v0.7.2，最近更新时间 2026-11-10，标价免费，Creator 版本要求 v3.8.8。本条的 v0.7.5 以 GitHub Release 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-19 打开为 HTTP 200。除仓库首页与 Cocos 商店页外，链接都指向 tag `v0.7.5`。
+- 核实日（Asia/Shanghai）：2026-11-19
+- 引擎版本与平台：与 2026-11-12 的 v0.7.2 条目保持一致，并基于本轮核对。Cocos 商店页仍写 Creator 版本要求 v3.8.8；仓库 README 徽章写 3.8+。4.0 兼容性在已核来源中未说明，待确认。目标平台待确认。README 明确该扩展是 Editor-only，不应作为游戏运行时依赖打进构建包。商店页的 Android / iOS / HTML5 标签不记为该扩展的运行平台。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.7.5 的 LICENSE 为 MIT License；Cocos 商店页标价为免费。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. 需在 Cocos Creator 中安装扩展（商店或 GitHub Release zip，并校验 `SHA256SUMS.txt`）。2026-11-19 商店页仍为 v0.7.2；若要 v0.7.5，应以 GitHub Release 为准并校验校验和。
+  2. 编辑器内嵌 HTTP MCP；README 示例为 `http://127.0.0.1:8765/` ，新项目使用项目派生端口，占用则回退。
+  3. Codex 一键配置仍写入 `$CODEX_HOME/config.toml`（默认 `~/.codex/config.toml`），示例为 `[mcp_servers.funplay_cocos]`，`url = "http://127.0.0.1:8765/"`。Antigravity 一键配置写入项目 `.agents/mcp_config.json`。
+  4. Configure + Skills 可能安装上述内置 skill；Codex 与 Antigravity 共用 `.agents/skills`，旧内置可迁移且不删除原文件。
+  5. 全局安装会写入 `~/.CocosCreator/builtin-extensions/<Creator version>/funplay-cocos-mcp`。
+  6. `execute_javascript` 安全检查默认开启，但不是完整沙箱，可被 `safety_checks: false` 关闭；扩展内没有额外审批开关，MCP 工具会直接执行。文件工具限制在当前项目根目录。
+
+### 本条来源链接
+
+- 仓库（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp>（2026-11-19 打开为 HTTP 200）
+- Release v0.7.5（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp/releases/tag/v0.7.5>（2026-11-19 打开为 HTTP 200；Published 2026-11-18T10:00:29Z）
+- CHANGELOG（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/CHANGELOG.md>（2026-11-19 打开为 HTTP 200）
+- README（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/README.md>（2026-11-19 打开为 HTTP 200）
+- LICENSE（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/LICENSE>（2026-11-19 打开为 HTTP 200，MIT License）
+- Cocos 商店页（store.cocos.com，页面显示 v0.7.2）：<https://store.cocos.com/app/detail/8913>（2026-11-19 打开为 HTTP 200）
+- CHANGELOG（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/CHANGELOG.md>（2026-11-19 打开为 HTTP 200）
+- README（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/README.md>（2026-11-19 打开为 HTTP 200）
+- LICENSE（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/LICENSE>（2026-11-19 打开为 HTTP 200）

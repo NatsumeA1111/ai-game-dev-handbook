@@ -242,3 +242,83 @@
 - create-game-assets（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/create-game-assets/SKILL.md>（2026-11-18 打开为 HTTP 200）
 - game-feel（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/game-feel/SKILL.md>（2026-11-18 打开为 HTTP 200）
 - audio-design（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/audio-design/SKILL.md>（2026-11-18 打开为 HTTP 200）
+
+## 2026-11-19 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### Funplay MCP for Cocos v0.7.5
+
+- 资源：Funplay MCP for Cocos v0.7.5（仓库 FunplayAI/funplay-cocos-mcp）
+- 类型：Cocos Creator 编辑器扩展 / MCP 工具（含内置 project skills），不是基础查阅文档
+- 评估：文档核对
+- 采用结论：这是已记录的 Codex + Cocos 编辑器联调候选接入点的实质更新，值得追加文档核对。README（tag v0.7.5）写明：内置 skill 仍是 `funplay-cocos-mcp-workflow`（v4）与 `funplay-cocos-ui-composition`（现为 v5）；Project Skills 覆盖全部 12 个一键客户端（含 Antigravity）；Codex 与 Antigravity 共用 `.agents/skills`，可迁移旧内置 skill 且保留原文件。UI v5 覆盖把整页设计稿拆成可编辑 prefab，并按区域做忠实度检查，有助于画风/界面一致性核对。v0.7.4 的 Game View 截图修复与此核对相关。v0.7.5 让 Codex 可与 Antigravity 共用 `.agents/skills` 的一键安装。未在本用户项目试用。本条不改写 2026-11-12 的 v0.7.2 记录。
+- 发布/更新日：GitHub Release v0.7.5 发布于 2026-11-18T10:00:29Z，CHANGELOG 日期为 2026-11-18。本条以 v0.7.5 为准。同一 7 天窗口内还有 v0.7.3 与 v0.7.4，不另开条目。
+  1. CHANGELOG 写 v0.7.3 为 2026-11-17，GitHub Release 发布于 2026-11-18T04:36:30Z。新增内置 Cocos UI Skill v5：引导把整页设计稿转成可编辑、响应式 prefab；覆盖资源复用、独立导航层、可复用列表行，并按区域对照 Cocos 预览截图做忠实度检查；缺图时可选生图。
+  2. CHANGELOG 写 v0.7.4 为 2026-11-17，GitHub Release 发布于 2026-11-18T06:44:31Z。修复 #28：Game View 截图能识别 Windows 风格路径和 URL 编码的 WebView preload 路径；游戏截图使用可见的原生 Game View 或 Cocos GameCanvas；没有游戏渲染表面时报错。
+  3. v0.7.5：为 Google Antigravity 提供一键 MCP 配置，把项目级 Streamable HTTP 端点写入 `.agents/mcp_config.json`；Configure + Skills 会把缺失的内置 skill 安装到 `.agents/skills`，Antigravity 与 Codex 都可发现该目录。
+  2026-11-19 打开的 Cocos 商店页显示版本 v0.7.2，最近更新时间 2026-11-10，标价免费，Creator 版本要求 v3.8.8。本条的 v0.7.5 以 GitHub Release 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-19 打开为 HTTP 200。除仓库首页与 Cocos 商店页外，链接都指向 tag `v0.7.5`。
+- 核实日（Asia/Shanghai）：2026-11-19
+- 引擎版本与平台：与 2026-11-12 的 v0.7.2 条目保持一致，并基于本轮核对。Cocos 商店页仍写 Creator 版本要求 v3.8.8；仓库 README 徽章写 3.8+。4.0 兼容性在已核来源中未说明，待确认。目标平台待确认。README 明确该扩展是 Editor-only，不应作为游戏运行时依赖打进构建包。商店页的 Android / iOS / HTML5 标签不记为该扩展的运行平台。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.7.5 的 LICENSE 为 MIT License；Cocos 商店页标价为免费。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. 需在 Cocos Creator 中安装扩展（商店或 GitHub Release zip，并校验 `SHA256SUMS.txt`）。2026-11-19 商店页仍为 v0.7.2；若要 v0.7.5，应以 GitHub Release 为准并校验校验和。
+  2. 编辑器内嵌 HTTP MCP；README 示例为 `http://127.0.0.1:8765/` ，新项目使用项目派生端口，占用则回退。
+  3. Codex 一键配置仍写入 `$CODEX_HOME/config.toml`（默认 `~/.codex/config.toml`），示例为 `[mcp_servers.funplay_cocos]`，`url = "http://127.0.0.1:8765/"`。Antigravity 一键配置写入项目 `.agents/mcp_config.json`。
+  4. Configure + Skills 可能安装上述内置 skill；Codex 与 Antigravity 共用 `.agents/skills`，旧内置可迁移且不删除原文件。
+  5. 全局安装会写入 `~/.CocosCreator/builtin-extensions/<Creator version>/funplay-cocos-mcp`。
+  6. `execute_javascript` 安全检查默认开启，但不是完整沙箱，可被 `safety_checks: false` 关闭；扩展内没有额外审批开关，MCP 工具会直接执行。文件工具限制在当前项目根目录。
+
+### 本条来源链接
+
+- 仓库（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp>（2026-11-19 打开为 HTTP 200）
+- Release v0.7.5（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp/releases/tag/v0.7.5>（2026-11-19 打开为 HTTP 200；Published 2026-11-18T10:00:29Z）
+- CHANGELOG（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/CHANGELOG.md>（2026-11-19 打开为 HTTP 200）
+- README（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/README.md>（2026-11-19 打开为 HTTP 200）
+- LICENSE（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/LICENSE>（2026-11-19 打开为 HTTP 200，MIT License）
+- Cocos 商店页（store.cocos.com，页面显示 v0.7.2）：<https://store.cocos.com/app/detail/8913>（2026-11-19 打开为 HTTP 200）
+- CHANGELOG（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/CHANGELOG.md>（2026-11-19 打开为 HTTP 200）
+- README（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/README.md>（2026-11-19 打开为 HTTP 200）
+- LICENSE（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/LICENSE>（2026-11-19 打开为 HTTP 200）
+
+## 2026-11-24 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档与源码所述，本仓库不安装、不执行。
+
+### @alanwalk/cocos-cli v1.0.0
+
+- 资源：@alanwalk/cocos-cli v1.0.0（仓库 alanwalk/cocos-cli，npm 包 `@alanwalk/cocos-cli`）
+- 类型：第三方命令行工具（含 Funplay MCP 安装与客户端注册辅助），不是基础查阅文档，也不是官方 `cocos/cocos-cli` 或官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-23 首次公开发布的第三方 CLI，专门补齐已记录的 Funplay MCP 与官方 Creator 命令行构建之间的安装、生命周期和检查入口，值得追加文档核对。README 与 CHANGELOG 写明：可用本机 Creator 3.8.8 模板创建 2D/3D 项目；离线检查 `.meta`、重复 UUID 与无效序列化引用，查找资源引用，只读查看或比较 Prefab；用 Creator 导出的构建配置走原生命令行打包；`cocos mcp setup/update` 从 Funplay 官方 GitHub Release 安装或更新扩展（校验 `SHA256SUMS.txt`），`ensure/status/doctor/stop/restart` 管理编辑器与 MCP 连接，`register --client` 可为 11 种 Agent 客户端注册 MCP，并可加 `--skills` 安装 Funplay 内置 skill；`mcp preview` 在独立 Edge/Chrome 窗口打开当前场景并采集该标签页运行日志。MCP 场景编辑、资源管理和预览能力仍由已记录的 Funplay MCP 提供，本工具是配套的安装与连接层，不是另一套编辑器协议。未在本用户项目试用。本条不得记成官方 Cocos CLI 的新版本。
+- 发布/更新日：GitHub Release v1.0.0 发布于 2026-11-23T14:47:24Z；CHANGELOG 日期为 2026-11-23；npm 包 `@alanwalk/cocos-cli@1.0.0` 发布于 2026-11-23T14:59:35Z。仓库创建于 2026-11-23T04:25:42Z。本条以 v1.0.0 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-24 打开为 HTTP 200。除仓库首页与 npm 页外，源码与文档链接都指向 tag `v1.0.0`。
+- 核实日（Asia/Shanghai）：2026-11-24
+- 引擎版本与平台：README 写主要验收版本为 Creator 3.8.8；按项目声明的版本查找编辑器，并搜索 Windows 和 macOS 的常见安装目录，自定义位置可用 `--editor`。作者 VALIDATION.md 称 2026-11-23 在 Windows + Node.js v26.3.0 上验证了创建、离线检查、Web Desktop 构建及项目级 Funplay/Codex 注册；并写明 macOS、其他构建平台，以及真实编辑器中的未保存保护、正常退出和重启仍是独立验收项。4.0 及其他 Creator 版本兼容性在已核来源中未作为已验收范围，待确认。目标平台待确认。构建需要 Creator 支持的 GUI 环境。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v1.0.0 的 LICENSE 为 MIT License（Copyright (c) 2026 alanwalk）；npm 页亦标 MIT。以各站点条款为准。
+- 依赖与权限（仅文档与 tag v1.0.0 源码所述，本仓库不安装、不执行）：
+  1. Node.js >= 20（`package.json` `engines`）。浏览器预览文档建议 Node.js 22 或更高（需支持内置 WebSocket），并需要本机安装 Edge 或 Chrome。
+  2. 全局安装命令为 `npm install -g @alanwalk/cocos-cli`，也可 `npx @alanwalk/cocos-cli`。包的 bin 名为 `cocos`。官方仓库 `cocos/cocos-cli`（本库已记录 0.2.0-beta.1）的 `package.json` 同样把 bin 设为 `cocos`。两者同时出现在 PATH 时会争用同一命令名。
+  3. `cocos mcp setup [--global]` / `update` 会请求 `https://api.github.com/repos/FunplayAI/funplay-cocos-mcp/releases/latest`，下载对应 `Funplay.CocosMcp.<tag>.zip` 与 `SHA256SUMS.txt` 并校验 SHA256。项目级安装路径为 `<项目>/extensions/funplay-cocos-mcp`；`--global` 安装路径为 `~/.CocosCreator/builtin-extensions/<Creator版本>/funplay-cocos-mcp`。文档写连接以 Funplay 0.7.6 接口为基准。
+  4. `cocos mcp register --client <客户端> [--skills]` 会写入对应 Agent 的 MCP 配置；Codex 为 `.codex/config.toml`。加 `--skills` 时通过已安装的 Funplay 扩展安装其内置 project skills。
+  5. `cocos open` / `build` 会启动本机 Creator 进程。`mcp preview` 使用临时浏览器配置打开游戏标签页，将 Console、未捕获异常和浏览器报告的网络错误写入项目 `temp/cocos-cli/preview-*.jsonl`，单次上限 8 MiB。
+  6. 运行时依赖为 `commander@14.0.3` 与 `fflate@0.8.3`。未设置 `COCOS_MCP_PORT` 且没有 Funplay 配置文件时，端口按项目派生；已有配置文件省略 `portMode` 时，Funplay 使用固定端口。
+
+### 本条来源链接
+
+- 仓库（github.com/alanwalk）：<https://github.com/alanwalk/cocos-cli>（2026-11-24 打开为 HTTP 200）
+- Release v1.0.0（github.com/alanwalk）：<https://github.com/alanwalk/cocos-cli/releases/tag/v1.0.0>（2026-11-24 打开为 HTTP 200；Published 2026-11-23T14:47:24Z）
+- npm 包（npmjs.com）：<https://www.npmjs.com/package/@alanwalk/cocos-cli>（2026-11-24 打开为 HTTP 200；1.0.0 发布于 2026-11-23T14:59:35Z）
+- CHANGELOG（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/CHANGELOG.md>（2026-11-24 打开为 HTTP 200）
+- README（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/README.md>（2026-11-24 打开为 HTTP 200）
+- LICENSE（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/LICENSE>（2026-11-24 打开为 HTTP 200，MIT License）
+- package.json（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/package.json>（2026-11-24 打开为 HTTP 200）
+- 验收文档（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/docs/VALIDATION.md>（2026-11-24 打开为 HTTP 200）
+- 构建说明（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/docs/BUILD_HANDOFF.md>（2026-11-24 打开为 HTTP 200）
+- CHANGELOG（tag v1.0.0 blob）：<https://github.com/alanwalk/cocos-cli/blob/v1.0.0/CHANGELOG.md>（2026-11-24 打开为 HTTP 200）
+- README（tag v1.0.0 blob）：<https://github.com/alanwalk/cocos-cli/blob/v1.0.0/README.md>（2026-11-24 打开为 HTTP 200）

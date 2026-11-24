@@ -44,6 +44,7 @@
 2026-11-17 新增 Cocos MCP AI Master v1.0.0（文档核对）。
 2026-11-18 新增 awesome-gamedev-agent-skills v2.0.0（文档核对）。
 2026-11-19 新增 Funplay MCP for Cocos v0.7.5（文档核对）。
+2026-11-24 新增 @alanwalk/cocos-cli v1.0.0（文档核对）。
 
 ## 本库校验
 

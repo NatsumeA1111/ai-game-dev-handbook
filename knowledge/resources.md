@@ -322,3 +322,44 @@
 - 构建说明（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/docs/BUILD_HANDOFF.md>（2026-11-24 打开为 HTTP 200）
 - CHANGELOG（tag v1.0.0 blob）：<https://github.com/alanwalk/cocos-cli/blob/v1.0.0/CHANGELOG.md>（2026-11-24 打开为 HTTP 200）
 - README（tag v1.0.0 blob）：<https://github.com/alanwalk/cocos-cli/blob/v1.0.0/README.md>（2026-11-24 打开为 HTTP 200）
+
+## 2026-11-25 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### sfx-skill v0.2.0
+
+- 资源：sfx-skill v0.2.0（仓库 owoevan-dev/sfx-skill）
+- 类型：跨引擎游戏音效 Agent Skill（含可编辑分层项目与本地渲染脚本），不是基础查阅文档，也不是官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-22 首次公开发布的音效设计 skill，本条以 2026-11-24 发布的 v0.2.0 为准，用来补已有知识库里的音效流程缺口。文档写明：不使用音频生成模型，而是由 agent 把每个音效写成可编辑的分层项目（起音、主体、低频、尾音等），用合成音色和可选的 CC0 现场录音渲染变体，把整组调到同一响度，做成接缝可测量的循环，并生成单文件试听页供人听写反馈。项目文件可重复渲染得到同样的音频。安装方式包括 Codex（`codex plugin marketplace add owoevan-dev/sfx-skill` 与 `codex plugin add sfx-skill@sfx-skill`）以及其他 agent 的 `npx skills add owoevan-dev/sfx-skill`。官方导出目标是 Godot、Unity、Unreal、Roblox 和网页，另有不绑定引擎的 `generic`（16-bit 与 24-bit WAV）。已核来源没有 Cocos Creator 的导出目标或导入设置说明，本条不得记成兼容 Cocos。标准音频文件能否按项目需要导入 Creator，待确认。作者写明 Unreal 和 Roblox 的导出是依照官方文档制作，尚未在这两个引擎中实际打开；作者 CI 声称在 Linux、macOS 与 Windows、Python 3.10 到 3.14 上跑测试，并把 Godot 导出实际导入 Godot。这些都是作者自称的验收，不能当作本库或本用户项目的试用通过，也不标推荐已验证。v0.2.0 增加可选的 music-skill / Surge XT 层、读取游戏配乐以便音效引用主题、以及试听页的中日韩英多语言等；同一 7 天窗口内的 v0.1.0–v0.1.3 不另开条目。未在本用户项目试用。
+- 发布/更新日：GitHub Release v0.1.0 发布于 2026-11-22T06:41:09Z（首次公开发布）；v0.2.0 发布于 2026-11-24T16:16:32Z（Asia/Shanghai 为 2026-11-25 00:16）。CHANGELOG 中 0.2.0 节未另写日期。本条以 v0.2.0 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-25 打开，返回正常。除仓库首页外，源码与文档链接都指向 tag `v0.2.0`。
+- 核实日（Asia/Shanghai）：2026-11-25
+- 引擎版本与平台：已核文档未点名 Cocos Creator，也未点名微信、TapTap 等小游戏目标。导出目标为 Godot、Unity、Unreal、Roblox、网页和 `generic`。运行环境是开发者本机，渲染在 CPU 上离线完成，不需要 GPU。需要 Python 3.10 以上和 NumPy。目标平台待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.2.0 的 LICENSE 为 MIT License（Copyright (c) 2026 sfx-skill contributors）。第三方条款见 THIRD_PARTY_NOTICES.md。可选录音来自 FSD50K 中作者在 Freesound 上声明为 CC0 的条目；FSD50K 数据集整体为 CC BY 4.0，本项目只选用其中的 CC0 录音。可选 Surge XT 为 GPL-3.0-or-later，其 FAQ 称用它做出的声音归使用者。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. Python 3.10 以上，以及 NumPy（在已安装的 skill 目录执行 `python -m pip install -r skills/sound-effects/requirements.txt`；`doctor` 会打印命令）。
+  2. Codex 安装为 `codex plugin marketplace add owoevan-dev/sfx-skill` 再 `codex plugin add sfx-skill@sfx-skill`。其他 agent 可用 `npx skills add owoevan-dev/sfx-skill`，或把 `skills/sound-effects` 复制到该 agent 的 skills 文件夹。
+  3. 可选：PATH 上的 FFmpeg，用于导出或导入 Ogg、MP3、FLAC。
+  4. 可选录音库：仅在用户同意后，从本项目 GitHub Release 或 Zenodo 上的 FSD50K 下载一次，文档写下载 2.9 GB，导入后连同压缩包约占 7.2 GB；每个文件比对公开校验码。文档写渲染全程离线，不会把数据发送出去。
+  5. 可选：[music-skill](https://github.com/owoevan-dev/music-skill)（music-production）与 Surge XT，用于采样乐器层和 Surge 层。未安装时仍可用合成音色。
+  6. skill 在开发者本机运行自己的 Python 脚本和已安装的 FFmpeg。不要把这一点写成已在本用户环境验证。
+
+### 本条来源链接
+
+- 仓库（github.com/owoevan-dev）：<https://github.com/owoevan-dev/sfx-skill>（2026-11-25 打开，返回正常）
+- Release v0.2.0（github.com/owoevan-dev）：<https://github.com/owoevan-dev/sfx-skill/releases/tag/v0.2.0>（2026-11-25 打开，返回正常；Published 2026-11-24T16:16:32Z）
+- Release v0.1.0（github.com/owoevan-dev）：<https://github.com/owoevan-dev/sfx-skill/releases/tag/v0.1.0>（2026-11-25 打开，返回正常；Published 2026-11-22T06:41:09Z）
+- CHANGELOG（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/CHANGELOG.md>（2026-11-25 打开，返回正常）
+- README 简体中文（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/README.zh-CN.md>（2026-11-25 打开，返回正常）
+- LICENSE（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/LICENSE>（2026-11-25 打开，返回正常，MIT License）
+- 导出说明（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/skills/sound-effects/references/export.md>（2026-11-25 打开，返回正常）
+- SKILL.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/skills/sound-effects/SKILL.md>（2026-11-25 打开，返回正常）
+- 第三方说明（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/THIRD_PARTY_NOTICES.md>（2026-11-25 打开，返回正常）
+- 隐私说明（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/PRIVACY.md>（2026-11-25 打开，返回正常）
+- CHANGELOG（tag v0.2.0 blob）：<https://github.com/owoevan-dev/sfx-skill/blob/v0.2.0/CHANGELOG.md>（2026-11-25 打开，返回正常）
+- README 简体中文（tag v0.2.0 blob）：<https://github.com/owoevan-dev/sfx-skill/blob/v0.2.0/README.zh-CN.md>（2026-11-25 打开，返回正常）
+- 可选配套 music-skill 仓库（github.com/owoevan-dev）：<https://github.com/owoevan-dev/music-skill>（2026-11-25 打开，返回正常；本条不单独归档 music-skill）

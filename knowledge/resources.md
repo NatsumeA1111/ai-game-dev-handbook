@@ -363,3 +363,49 @@
 - CHANGELOG（tag v0.2.0 blob）：<https://github.com/owoevan-dev/sfx-skill/blob/v0.2.0/CHANGELOG.md>（2026-11-25 打开，返回正常）
 - README 简体中文（tag v0.2.0 blob）：<https://github.com/owoevan-dev/sfx-skill/blob/v0.2.0/README.zh-CN.md>（2026-11-25 打开，返回正常）
 - 可选配套 music-skill 仓库（github.com/owoevan-dev）：<https://github.com/owoevan-dev/music-skill>（2026-11-25 打开，返回正常；本条不单独归档 music-skill）
+
+## 2026-11-26 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### so-hot-right-now v0.2.0
+
+- 资源：so-hot-right-now v0.2.0（仓库 mrsharpoblunto/so-hot-right-now，npm 包 `@thestraylight/so-hot-right-now`）
+- 类型：TypeScript 热路径检查器 / Agent Skills（文档写明 Codex 与 Claude Code 均可读同一 Agent Skills 格式），不是基础查阅文档，也不是官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-25 首次公开发布的热路径检查器，本条以 npm 与 git tag 的 v0.2.0 为准，用来补已有知识库里与性能预算相关的流程缺口。文档写明：按项目配置的引擎入口（roots）沿类型可解析的调用图，检查每帧或每 tick 热路径中的分配、闭包、字符串比较和哈希查找；可用 baseline 文件记录已有问题计数，新增问题会使检查失败，计数下降后也要重新记录 baseline，否则检查同样失败。函数需标记 `@hot` 或 `@hotIgnore <reason>`；匹配不到的根可以写成 `@hot <caller>`；也可用一行 `// hot-path: allow <reason>` 接受单个问题。提供两个 skill：`hot-paths`（编写与修复热路径）和 `hot-paths-setup`（接入配置、寻找 roots、写 config、记录 baseline）。`npx so-hot-right-now skills` 会复制到 `.claude/skills/`（Claude Code）和 `.agents/skills/`（Codex 及其他 Agent Skills 工具）；可用 `--target claude`、`--target codex` 或指定文件夹，也可用 `--global` 复制到用户主目录对应技能目录。也可 `codex plugin marketplace add mrsharpoblunto/so-hot-right-now` 再 `codex plugin add so-hot-right-now@so-hot-right-now`。README 写明 Codex 读取仓库 `.claude-plugin/` 下的 marketplace 文件，一份清单同时给两个 agent。已核来源未点名 Cocos Creator。内置 preset 仅为 browser、webgpu、react、audioWorklet，本条不得记成兼容 Cocos。Creator 工程的 TypeScript 版本、tsconfig 布局，以及更新循环能否配置为 roots，待确认。v0.2.0 相对此前增加 TypeScript 7 原生后端（发布提交写明通过原生后端支持 TypeScript 7，并使 typescript 成为 peer dependency；纳入该 tag 的前一提交为批量处理 TypeScript 7 的类型与符号请求）。同一 7 天窗口内的 npm 0.1.0 与 0.1.1 不另开条目。未在本用户项目试用。
+- 发布/更新日：仓库创建于 2026-11-25T21:03:04Z。npm 包首次公开为 `@thestraylight/so-hot-right-now@0.1.0`，发布于 2026-11-25T21:49:04.589Z；0.1.1 发布于 2026-11-25T22:03:06.672Z。git tag `v0.2.0` 指向 commit `3567b1977aa33a69656f881b1530e5a7c72c7099`，该提交时间为 2026-11-25T22:44:43Z。标签页在 2026-11-26 打开为 HTTP 200，页面为 tagged this；GitHub Releases API 列表为空，因此不要写成正式 GitHub Release 对象。发布渠道以 npm 为准。npm `@thestraylight/so-hot-right-now@0.2.0` 发布于 2026-11-25T22:51:21.455Z（Asia/Shanghai 为 2026-11-26 06:51）。registry 的 `dist-tags.latest` 为 0.2.0，该版本 `gitHead` 与上述 tag commit 一致。本条以 v0.2.0 为准。
+- 来源链接：见下方本条来源链接。除 npm 包页外，下列链接均在 2026-11-26 打开为 HTTP 200。npm 包页直接请求返回 HTTP 403（Cloudflare 拦截页），不记成页面不存在；包的存在与版本以 registry 为准。除仓库首页、npm 包页与 registry 外，源码与文档链接都指向 tag `v0.2.0`。
+- 核实日（Asia/Shanghai）：2026-11-26
+- 引擎版本与平台：已核文档未点名 Cocos Creator，也未点名微信、TapTap 等小游戏目标。检查器读取 `tsconfig.json` 所包含的 TypeScript/JavaScript；peer 依赖 TypeScript >= 5.0（文档称支持 5.x、6.x、7.x，并使用项目已安装的 TypeScript 版本）。需要 Node.js >= 22.18。运行在开发者本机的检查/lint 流程，不是游戏运行时依赖。目标平台待确认。Creator 兼容性待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.2.0 的 LICENSE 为 MIT License（Copyright (c) 2026 Glenn Conner）。npm 0.2.0 元数据与 `plugins/so-hot-right-now/.claude-plugin/plugin.json` 亦标 MIT。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. Node.js >= 22.18。`typescript` 为 peer dependency（>= 5.0），检查器使用项目安装的 TypeScript。
+  2. 开发依赖安装示例为 `pnpm add -D @thestraylight/so-hot-right-now typescript`，然后 `npx so-hot-right-now init`，会在当前目录写入 `hot-path.config.mjs`（应放在 `tsconfig.json` 所在目录）。
+  3. 常用命令：`npx so-hot-right-now report`、`npx so-hot-right-now baseline`、`npx so-hot-right-now`（相对 baseline 检查，文档建议放入 lint 脚本）。
+  4. 技能复制与 Codex plugin 安装命令见采用结论。不要把这些命令写成已在本用户环境执行或验证。
+  5. 运行时依赖为 `picomatch`（tag v0.2.0 的 `package.json` 写 `^4.0.7`）。文档写明：只跟踪类型检查器能解析的调用；经 `any` 或计算属性名的调用会中止向下走图。
+  6. `init`、skills 复制和 Codex plugin 安装会在项目或用户目录写入配置/技能文件。不要把这一点写成已在本用户环境验证。
+
+### 本条来源链接
+
+- 仓库（github.com/mrsharpoblunto）：<https://github.com/mrsharpoblunto/so-hot-right-now>（2026-11-26 打开为 HTTP 200）
+- Git tag 页（不是正式 GitHub Release 对象）：<https://github.com/mrsharpoblunto/so-hot-right-now/releases/tag/v0.2.0>（2026-11-26 打开为 HTTP 200，页面为 tagged this。同日 GitHub Releases API `GET /repos/mrsharpoblunto/so-hot-right-now/releases` 返回 HTTP 200 且正文为 `[]`，`releases/tags/v0.2.0` 返回 HTTP 404）
+- npm 包页（www.npmjs.com）：<https://www.npmjs.com/package/@thestraylight/so-hot-right-now>（2026-11-26 直接请求返回 HTTP 403，页面为 Cloudflare 拦截，不记成页面不存在；包与版本以 registry 为准）
+- npm registry：<https://registry.npmjs.org/@thestraylight/so-hot-right-now>（2026-11-26 打开为 HTTP 200；`dist-tags.latest` 为 0.2.0；0.2.0 发布于 2026-11-25T22:51:21.455Z；`gitHead` 为 `3567b1977aa33a69656f881b1530e5a7c72c7099`）
+- jsDelivr package.json（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@thestraylight/so-hot-right-now@0.2.0/package.json>（2026-11-26 打开为 HTTP 200，version 0.2.0，license MIT）
+- jsDelivr README（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@thestraylight/so-hot-right-now@0.2.0/README.md>（2026-11-26 打开为 HTTP 200）
+- LICENSE（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/LICENSE>（2026-11-26 打开为 HTTP 200，MIT License）
+- README（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/README.md>（2026-11-26 打开为 HTTP 200）
+- package.json（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/package.json>（2026-11-26 打开为 HTTP 200）
+- plugin.json（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/.claude-plugin/plugin.json>（2026-11-26 打开为 HTTP 200，version 0.2.0，license MIT）
+- marketplace.json（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/.claude-plugin/marketplace.json>（2026-11-26 打开为 HTTP 200）
+- hot-paths SKILL.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/skills/hot-paths/SKILL.md>（2026-11-26 打开为 HTTP 200）
+- hot-paths-setup SKILL.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/skills/hot-paths-setup/SKILL.md>（2026-11-26 打开为 HTTP 200）
+- rules.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/skills/hot-paths/rules.md>（2026-11-26 打开为 HTTP 200）
+- docs/plugins.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/docs/plugins.md>（2026-11-26 打开为 HTTP 200）
+- LICENSE（tag v0.2.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.2.0/LICENSE>（2026-11-26 打开为 HTTP 200）
+- README（tag v0.2.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.2.0/README.md>（2026-11-26 打开为 HTTP 200）
+- package.json（tag v0.2.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.2.0/package.json>（2026-11-26 打开为 HTTP 200）

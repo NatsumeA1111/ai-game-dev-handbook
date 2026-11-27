@@ -242,3 +242,261 @@
 - create-game-assets（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/create-game-assets/SKILL.md>（2026-11-18 打开为 HTTP 200）
 - game-feel（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/game-feel/SKILL.md>（2026-11-18 打开为 HTTP 200）
 - audio-design（tag v2.0.0）：<https://github.com/gamedev-skills/awesome-gamedev-agent-skills/blob/v2.0.0/skills/disciplines/audio-design/SKILL.md>（2026-11-18 打开为 HTTP 200）
+
+## 2026-11-19 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### Funplay MCP for Cocos v0.7.5
+
+- 资源：Funplay MCP for Cocos v0.7.5（仓库 FunplayAI/funplay-cocos-mcp）
+- 类型：Cocos Creator 编辑器扩展 / MCP 工具（含内置 project skills），不是基础查阅文档
+- 评估：文档核对
+- 采用结论：这是已记录的 Codex + Cocos 编辑器联调候选接入点的实质更新，值得追加文档核对。README（tag v0.7.5）写明：内置 skill 仍是 `funplay-cocos-mcp-workflow`（v4）与 `funplay-cocos-ui-composition`（现为 v5）；Project Skills 覆盖全部 12 个一键客户端（含 Antigravity）；Codex 与 Antigravity 共用 `.agents/skills`，可迁移旧内置 skill 且保留原文件。UI v5 覆盖把整页设计稿拆成可编辑 prefab，并按区域做忠实度检查，有助于画风/界面一致性核对。v0.7.4 的 Game View 截图修复与此核对相关。v0.7.5 让 Codex 可与 Antigravity 共用 `.agents/skills` 的一键安装。未在本用户项目试用。本条不改写 2026-11-12 的 v0.7.2 记录。
+- 发布/更新日：GitHub Release v0.7.5 发布于 2026-11-18T10:00:29Z，CHANGELOG 日期为 2026-11-18。本条以 v0.7.5 为准。同一 7 天窗口内还有 v0.7.3 与 v0.7.4，不另开条目。
+  1. CHANGELOG 写 v0.7.3 为 2026-11-17，GitHub Release 发布于 2026-11-18T04:36:30Z。新增内置 Cocos UI Skill v5：引导把整页设计稿转成可编辑、响应式 prefab；覆盖资源复用、独立导航层、可复用列表行，并按区域对照 Cocos 预览截图做忠实度检查；缺图时可选生图。
+  2. CHANGELOG 写 v0.7.4 为 2026-11-17，GitHub Release 发布于 2026-11-18T06:44:31Z。修复 #28：Game View 截图能识别 Windows 风格路径和 URL 编码的 WebView preload 路径；游戏截图使用可见的原生 Game View 或 Cocos GameCanvas；没有游戏渲染表面时报错。
+  3. v0.7.5：为 Google Antigravity 提供一键 MCP 配置，把项目级 Streamable HTTP 端点写入 `.agents/mcp_config.json`；Configure + Skills 会把缺失的内置 skill 安装到 `.agents/skills`，Antigravity 与 Codex 都可发现该目录。
+  2026-11-19 打开的 Cocos 商店页显示版本 v0.7.2，最近更新时间 2026-11-10，标价免费，Creator 版本要求 v3.8.8。本条的 v0.7.5 以 GitHub Release 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-19 打开为 HTTP 200。除仓库首页与 Cocos 商店页外，链接都指向 tag `v0.7.5`。
+- 核实日（Asia/Shanghai）：2026-11-19
+- 引擎版本与平台：与 2026-11-12 的 v0.7.2 条目保持一致，并基于本轮核对。Cocos 商店页仍写 Creator 版本要求 v3.8.8；仓库 README 徽章写 3.8+。4.0 兼容性在已核来源中未说明，待确认。目标平台待确认。README 明确该扩展是 Editor-only，不应作为游戏运行时依赖打进构建包。商店页的 Android / iOS / HTML5 标签不记为该扩展的运行平台。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.7.5 的 LICENSE 为 MIT License；Cocos 商店页标价为免费。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. 需在 Cocos Creator 中安装扩展（商店或 GitHub Release zip，并校验 `SHA256SUMS.txt`）。2026-11-19 商店页仍为 v0.7.2；若要 v0.7.5，应以 GitHub Release 为准并校验校验和。
+  2. 编辑器内嵌 HTTP MCP；README 示例为 `http://127.0.0.1:8765/` ，新项目使用项目派生端口，占用则回退。
+  3. Codex 一键配置仍写入 `$CODEX_HOME/config.toml`（默认 `~/.codex/config.toml`），示例为 `[mcp_servers.funplay_cocos]`，`url = "http://127.0.0.1:8765/"`。Antigravity 一键配置写入项目 `.agents/mcp_config.json`。
+  4. Configure + Skills 可能安装上述内置 skill；Codex 与 Antigravity 共用 `.agents/skills`，旧内置可迁移且不删除原文件。
+  5. 全局安装会写入 `~/.CocosCreator/builtin-extensions/<Creator version>/funplay-cocos-mcp`。
+  6. `execute_javascript` 安全检查默认开启，但不是完整沙箱，可被 `safety_checks: false` 关闭；扩展内没有额外审批开关，MCP 工具会直接执行。文件工具限制在当前项目根目录。
+
+### 本条来源链接
+
+- 仓库（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp>（2026-11-19 打开为 HTTP 200）
+- Release v0.7.5（github.com/FunplayAI）：<https://github.com/FunplayAI/funplay-cocos-mcp/releases/tag/v0.7.5>（2026-11-19 打开为 HTTP 200；Published 2026-11-18T10:00:29Z）
+- CHANGELOG（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/CHANGELOG.md>（2026-11-19 打开为 HTTP 200）
+- README（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/README.md>（2026-11-19 打开为 HTTP 200）
+- LICENSE（tag v0.7.5 raw）：<https://raw.githubusercontent.com/FunplayAI/funplay-cocos-mcp/v0.7.5/LICENSE>（2026-11-19 打开为 HTTP 200，MIT License）
+- Cocos 商店页（store.cocos.com，页面显示 v0.7.2）：<https://store.cocos.com/app/detail/8913>（2026-11-19 打开为 HTTP 200）
+- CHANGELOG（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/CHANGELOG.md>（2026-11-19 打开为 HTTP 200）
+- README（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/README.md>（2026-11-19 打开为 HTTP 200）
+- LICENSE（tag v0.7.5 blob）：<https://github.com/FunplayAI/funplay-cocos-mcp/blob/v0.7.5/LICENSE>（2026-11-19 打开为 HTTP 200）
+
+## 2026-11-24 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档与源码所述，本仓库不安装、不执行。
+
+### @alanwalk/cocos-cli v1.0.0
+
+- 资源：@alanwalk/cocos-cli v1.0.0（仓库 alanwalk/cocos-cli，npm 包 `@alanwalk/cocos-cli`）
+- 类型：第三方命令行工具（含 Funplay MCP 安装与客户端注册辅助），不是基础查阅文档，也不是官方 `cocos/cocos-cli` 或官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-23 首次公开发布的第三方 CLI，专门补齐已记录的 Funplay MCP 与官方 Creator 命令行构建之间的安装、生命周期和检查入口，值得追加文档核对。README 与 CHANGELOG 写明：可用本机 Creator 3.8.8 模板创建 2D/3D 项目；离线检查 `.meta`、重复 UUID 与无效序列化引用，查找资源引用，只读查看或比较 Prefab；用 Creator 导出的构建配置走原生命令行打包；`cocos mcp setup/update` 从 Funplay 官方 GitHub Release 安装或更新扩展（校验 `SHA256SUMS.txt`），`ensure/status/doctor/stop/restart` 管理编辑器与 MCP 连接，`register --client` 可为 11 种 Agent 客户端注册 MCP，并可加 `--skills` 安装 Funplay 内置 skill；`mcp preview` 在独立 Edge/Chrome 窗口打开当前场景并采集该标签页运行日志。MCP 场景编辑、资源管理和预览能力仍由已记录的 Funplay MCP 提供，本工具是配套的安装与连接层，不是另一套编辑器协议。未在本用户项目试用。本条不得记成官方 Cocos CLI 的新版本。
+- 发布/更新日：GitHub Release v1.0.0 发布于 2026-11-23T14:47:24Z；CHANGELOG 日期为 2026-11-23；npm 包 `@alanwalk/cocos-cli@1.0.0` 发布于 2026-11-23T14:59:35Z。仓库创建于 2026-11-23T04:25:42Z。本条以 v1.0.0 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-24 打开为 HTTP 200。除仓库首页与 npm 页外，源码与文档链接都指向 tag `v1.0.0`。
+- 核实日（Asia/Shanghai）：2026-11-24
+- 引擎版本与平台：README 写主要验收版本为 Creator 3.8.8；按项目声明的版本查找编辑器，并搜索 Windows 和 macOS 的常见安装目录，自定义位置可用 `--editor`。作者 VALIDATION.md 称 2026-11-23 在 Windows + Node.js v26.3.0 上验证了创建、离线检查、Web Desktop 构建及项目级 Funplay/Codex 注册；并写明 macOS、其他构建平台，以及真实编辑器中的未保存保护、正常退出和重启仍是独立验收项。4.0 及其他 Creator 版本兼容性在已核来源中未作为已验收范围，待确认。目标平台待确认。构建需要 Creator 支持的 GUI 环境。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v1.0.0 的 LICENSE 为 MIT License（Copyright (c) 2026 alanwalk）；npm 页亦标 MIT。以各站点条款为准。
+- 依赖与权限（仅文档与 tag v1.0.0 源码所述，本仓库不安装、不执行）：
+  1. Node.js >= 20（`package.json` `engines`）。浏览器预览文档建议 Node.js 22 或更高（需支持内置 WebSocket），并需要本机安装 Edge 或 Chrome。
+  2. 全局安装命令为 `npm install -g @alanwalk/cocos-cli`，也可 `npx @alanwalk/cocos-cli`。包的 bin 名为 `cocos`。官方仓库 `cocos/cocos-cli`（本库已记录 0.2.0-beta.1）的 `package.json` 同样把 bin 设为 `cocos`。两者同时出现在 PATH 时会争用同一命令名。
+  3. `cocos mcp setup [--global]` / `update` 会请求 `https://api.github.com/repos/FunplayAI/funplay-cocos-mcp/releases/latest`，下载对应 `Funplay.CocosMcp.<tag>.zip` 与 `SHA256SUMS.txt` 并校验 SHA256。项目级安装路径为 `<项目>/extensions/funplay-cocos-mcp`；`--global` 安装路径为 `~/.CocosCreator/builtin-extensions/<Creator版本>/funplay-cocos-mcp`。文档写连接以 Funplay 0.7.6 接口为基准。
+  4. `cocos mcp register --client <客户端> [--skills]` 会写入对应 Agent 的 MCP 配置；Codex 为 `.codex/config.toml`。加 `--skills` 时通过已安装的 Funplay 扩展安装其内置 project skills。
+  5. `cocos open` / `build` 会启动本机 Creator 进程。`mcp preview` 使用临时浏览器配置打开游戏标签页，将 Console、未捕获异常和浏览器报告的网络错误写入项目 `temp/cocos-cli/preview-*.jsonl`，单次上限 8 MiB。
+  6. 运行时依赖为 `commander@14.0.3` 与 `fflate@0.8.3`。未设置 `COCOS_MCP_PORT` 且没有 Funplay 配置文件时，端口按项目派生；已有配置文件省略 `portMode` 时，Funplay 使用固定端口。
+
+### 本条来源链接
+
+- 仓库（github.com/alanwalk）：<https://github.com/alanwalk/cocos-cli>（2026-11-24 打开为 HTTP 200）
+- Release v1.0.0（github.com/alanwalk）：<https://github.com/alanwalk/cocos-cli/releases/tag/v1.0.0>（2026-11-24 打开为 HTTP 200；Published 2026-11-23T14:47:24Z）
+- npm 包（npmjs.com）：<https://www.npmjs.com/package/@alanwalk/cocos-cli>（2026-11-24 打开为 HTTP 200；1.0.0 发布于 2026-11-23T14:59:35Z）
+- CHANGELOG（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/CHANGELOG.md>（2026-11-24 打开为 HTTP 200）
+- README（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/README.md>（2026-11-24 打开为 HTTP 200）
+- LICENSE（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/LICENSE>（2026-11-24 打开为 HTTP 200，MIT License）
+- package.json（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/package.json>（2026-11-24 打开为 HTTP 200）
+- 验收文档（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/docs/VALIDATION.md>（2026-11-24 打开为 HTTP 200）
+- 构建说明（tag v1.0.0 raw）：<https://raw.githubusercontent.com/alanwalk/cocos-cli/v1.0.0/docs/BUILD_HANDOFF.md>（2026-11-24 打开为 HTTP 200）
+- CHANGELOG（tag v1.0.0 blob）：<https://github.com/alanwalk/cocos-cli/blob/v1.0.0/CHANGELOG.md>（2026-11-24 打开为 HTTP 200）
+- README（tag v1.0.0 blob）：<https://github.com/alanwalk/cocos-cli/blob/v1.0.0/README.md>（2026-11-24 打开为 HTTP 200）
+
+## 2026-11-25 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### sfx-skill v0.2.0
+
+- 资源：sfx-skill v0.2.0（仓库 owoevan-dev/sfx-skill）
+- 类型：跨引擎游戏音效 Agent Skill（含可编辑分层项目与本地渲染脚本），不是基础查阅文档，也不是官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-22 首次公开发布的音效设计 skill，本条以 2026-11-24 发布的 v0.2.0 为准，用来补已有知识库里的音效流程缺口。文档写明：不使用音频生成模型，而是由 agent 把每个音效写成可编辑的分层项目（起音、主体、低频、尾音等），用合成音色和可选的 CC0 现场录音渲染变体，把整组调到同一响度，做成接缝可测量的循环，并生成单文件试听页供人听写反馈。项目文件可重复渲染得到同样的音频。安装方式包括 Codex（`codex plugin marketplace add owoevan-dev/sfx-skill` 与 `codex plugin add sfx-skill@sfx-skill`）以及其他 agent 的 `npx skills add owoevan-dev/sfx-skill`。官方导出目标是 Godot、Unity、Unreal、Roblox 和网页，另有不绑定引擎的 `generic`（16-bit 与 24-bit WAV）。已核来源没有 Cocos Creator 的导出目标或导入设置说明，本条不得记成兼容 Cocos。标准音频文件能否按项目需要导入 Creator，待确认。作者写明 Unreal 和 Roblox 的导出是依照官方文档制作，尚未在这两个引擎中实际打开；作者 CI 声称在 Linux、macOS 与 Windows、Python 3.10 到 3.14 上跑测试，并把 Godot 导出实际导入 Godot。这些都是作者自称的验收，不能当作本库或本用户项目的试用通过，也不标推荐已验证。v0.2.0 增加可选的 music-skill / Surge XT 层、读取游戏配乐以便音效引用主题、以及试听页的中日韩英多语言等；同一 7 天窗口内的 v0.1.0–v0.1.3 不另开条目。未在本用户项目试用。
+- 发布/更新日：GitHub Release v0.1.0 发布于 2026-11-22T06:41:09Z（首次公开发布）；v0.2.0 发布于 2026-11-24T16:16:32Z（Asia/Shanghai 为 2026-11-25 00:16）。CHANGELOG 中 0.2.0 节未另写日期。本条以 v0.2.0 为准。
+- 来源链接：见下方本条来源链接。下列链接均在 2026-11-25 打开，返回正常。除仓库首页外，源码与文档链接都指向 tag `v0.2.0`。
+- 核实日（Asia/Shanghai）：2026-11-25
+- 引擎版本与平台：已核文档未点名 Cocos Creator，也未点名微信、TapTap 等小游戏目标。导出目标为 Godot、Unity、Unreal、Roblox、网页和 `generic`。运行环境是开发者本机，渲染在 CPU 上离线完成，不需要 GPU。需要 Python 3.10 以上和 NumPy。目标平台待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.2.0 的 LICENSE 为 MIT License（Copyright (c) 2026 sfx-skill contributors）。第三方条款见 THIRD_PARTY_NOTICES.md。可选录音来自 FSD50K 中作者在 Freesound 上声明为 CC0 的条目；FSD50K 数据集整体为 CC BY 4.0，本项目只选用其中的 CC0 录音。可选 Surge XT 为 GPL-3.0-or-later，其 FAQ 称用它做出的声音归使用者。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. Python 3.10 以上，以及 NumPy（在已安装的 skill 目录执行 `python -m pip install -r skills/sound-effects/requirements.txt`；`doctor` 会打印命令）。
+  2. Codex 安装为 `codex plugin marketplace add owoevan-dev/sfx-skill` 再 `codex plugin add sfx-skill@sfx-skill`。其他 agent 可用 `npx skills add owoevan-dev/sfx-skill`，或把 `skills/sound-effects` 复制到该 agent 的 skills 文件夹。
+  3. 可选：PATH 上的 FFmpeg，用于导出或导入 Ogg、MP3、FLAC。
+  4. 可选录音库：仅在用户同意后，从本项目 GitHub Release 或 Zenodo 上的 FSD50K 下载一次，文档写下载 2.9 GB，导入后连同压缩包约占 7.2 GB；每个文件比对公开校验码。文档写渲染全程离线，不会把数据发送出去。
+  5. 可选：[music-skill](https://github.com/owoevan-dev/music-skill)（music-production）与 Surge XT，用于采样乐器层和 Surge 层。未安装时仍可用合成音色。
+  6. skill 在开发者本机运行自己的 Python 脚本和已安装的 FFmpeg。不要把这一点写成已在本用户环境验证。
+
+### 本条来源链接
+
+- 仓库（github.com/owoevan-dev）：<https://github.com/owoevan-dev/sfx-skill>（2026-11-25 打开，返回正常）
+- Release v0.2.0（github.com/owoevan-dev）：<https://github.com/owoevan-dev/sfx-skill/releases/tag/v0.2.0>（2026-11-25 打开，返回正常；Published 2026-11-24T16:16:32Z）
+- Release v0.1.0（github.com/owoevan-dev）：<https://github.com/owoevan-dev/sfx-skill/releases/tag/v0.1.0>（2026-11-25 打开，返回正常；Published 2026-11-22T06:41:09Z）
+- CHANGELOG（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/CHANGELOG.md>（2026-11-25 打开，返回正常）
+- README 简体中文（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/README.zh-CN.md>（2026-11-25 打开，返回正常）
+- LICENSE（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/LICENSE>（2026-11-25 打开，返回正常，MIT License）
+- 导出说明（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/skills/sound-effects/references/export.md>（2026-11-25 打开，返回正常）
+- SKILL.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/skills/sound-effects/SKILL.md>（2026-11-25 打开，返回正常）
+- 第三方说明（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/THIRD_PARTY_NOTICES.md>（2026-11-25 打开，返回正常）
+- 隐私说明（tag v0.2.0 raw）：<https://raw.githubusercontent.com/owoevan-dev/sfx-skill/v0.2.0/PRIVACY.md>（2026-11-25 打开，返回正常）
+- CHANGELOG（tag v0.2.0 blob）：<https://github.com/owoevan-dev/sfx-skill/blob/v0.2.0/CHANGELOG.md>（2026-11-25 打开，返回正常）
+- README 简体中文（tag v0.2.0 blob）：<https://github.com/owoevan-dev/sfx-skill/blob/v0.2.0/README.zh-CN.md>（2026-11-25 打开，返回正常）
+- 可选配套 music-skill 仓库（github.com/owoevan-dev）：<https://github.com/owoevan-dev/music-skill>（2026-11-25 打开，返回正常；本条不单独归档 music-skill）
+
+## 2026-11-26 新增
+
+本轮 1 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### so-hot-right-now v0.2.0
+
+- 资源：so-hot-right-now v0.2.0（仓库 mrsharpoblunto/so-hot-right-now，npm 包 `@thestraylight/so-hot-right-now`）
+- 类型：TypeScript 热路径检查器 / Agent Skills（文档写明 Codex 与 Claude Code 均可读同一 Agent Skills 格式），不是基础查阅文档，也不是官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-25 首次公开发布的热路径检查器，本条以 npm 与 git tag 的 v0.2.0 为准，用来补已有知识库里与性能预算相关的流程缺口。文档写明：按项目配置的引擎入口（roots）沿类型可解析的调用图，检查每帧或每 tick 热路径中的分配、闭包、字符串比较和哈希查找；可用 baseline 文件记录已有问题计数，新增问题会使检查失败，计数下降后也要重新记录 baseline，否则检查同样失败。函数需标记 `@hot` 或 `@hotIgnore <reason>`；匹配不到的根可以写成 `@hot <caller>`；也可用一行 `// hot-path: allow <reason>` 接受单个问题。提供两个 skill：`hot-paths`（编写与修复热路径）和 `hot-paths-setup`（接入配置、寻找 roots、写 config、记录 baseline）。`npx so-hot-right-now skills` 会复制到 `.claude/skills/`（Claude Code）和 `.agents/skills/`（Codex 及其他 Agent Skills 工具）；可用 `--target claude`、`--target codex` 或指定文件夹，也可用 `--global` 复制到用户主目录对应技能目录。也可 `codex plugin marketplace add mrsharpoblunto/so-hot-right-now` 再 `codex plugin add so-hot-right-now@so-hot-right-now`。README 写明 Codex 读取仓库 `.claude-plugin/` 下的 marketplace 文件，一份清单同时给两个 agent。已核来源未点名 Cocos Creator。内置 preset 仅为 browser、webgpu、react、audioWorklet，本条不得记成兼容 Cocos。Creator 工程的 TypeScript 版本、tsconfig 布局，以及更新循环能否配置为 roots，待确认。v0.2.0 相对此前增加 TypeScript 7 原生后端（发布提交写明通过原生后端支持 TypeScript 7，并使 typescript 成为 peer dependency；纳入该 tag 的前一提交为批量处理 TypeScript 7 的类型与符号请求）。同一 7 天窗口内的 npm 0.1.0 与 0.1.1 不另开条目。未在本用户项目试用。
+- 发布/更新日：仓库创建于 2026-11-25T21:03:04Z。npm 包首次公开为 `@thestraylight/so-hot-right-now@0.1.0`，发布于 2026-11-25T21:49:04.589Z；0.1.1 发布于 2026-11-25T22:03:06.672Z。git tag `v0.2.0` 指向 commit `3567b1977aa33a69656f881b1530e5a7c72c7099`，该提交时间为 2026-11-25T22:44:43Z。标签页在 2026-11-26 打开为 HTTP 200，页面为 tagged this；GitHub Releases API 列表为空，因此不要写成正式 GitHub Release 对象。发布渠道以 npm 为准。npm `@thestraylight/so-hot-right-now@0.2.0` 发布于 2026-11-25T22:51:21.455Z（Asia/Shanghai 为 2026-11-26 06:51）。registry 的 `dist-tags.latest` 为 0.2.0，该版本 `gitHead` 与上述 tag commit 一致。本条以 v0.2.0 为准。
+- 来源链接：见下方本条来源链接。除 npm 包页外，下列链接均在 2026-11-26 打开为 HTTP 200。npm 包页直接请求返回 HTTP 403（Cloudflare 拦截页），不记成页面不存在；包的存在与版本以 registry 为准。除仓库首页、npm 包页与 registry 外，源码与文档链接都指向 tag `v0.2.0`。
+- 核实日（Asia/Shanghai）：2026-11-26
+- 引擎版本与平台：已核文档未点名 Cocos Creator，也未点名微信、TapTap 等小游戏目标。检查器读取 `tsconfig.json` 所包含的 TypeScript/JavaScript；peer 依赖 TypeScript >= 5.0（文档称支持 5.x、6.x、7.x，并使用项目已安装的 TypeScript 版本）。需要 Node.js >= 22.18。运行在开发者本机的检查/lint 流程，不是游戏运行时依赖。目标平台待确认。Creator 兼容性待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.2.0 的 LICENSE 为 MIT License（Copyright (c) 2026 Glenn Conner）。npm 0.2.0 元数据与 `plugins/so-hot-right-now/.claude-plugin/plugin.json` 亦标 MIT。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. Node.js >= 22.18。`typescript` 为 peer dependency（>= 5.0），检查器使用项目安装的 TypeScript。
+  2. 开发依赖安装示例为 `pnpm add -D @thestraylight/so-hot-right-now typescript`，然后 `npx so-hot-right-now init`，会在当前目录写入 `hot-path.config.mjs`（应放在 `tsconfig.json` 所在目录）。
+  3. 常用命令：`npx so-hot-right-now report`、`npx so-hot-right-now baseline`、`npx so-hot-right-now`（相对 baseline 检查，文档建议放入 lint 脚本）。
+  4. 技能复制与 Codex plugin 安装命令见采用结论。不要把这些命令写成已在本用户环境执行或验证。
+  5. 运行时依赖为 `picomatch`（tag v0.2.0 的 `package.json` 写 `^4.0.7`）。文档写明：只跟踪类型检查器能解析的调用；经 `any` 或计算属性名的调用会中止向下走图。
+  6. `init`、skills 复制和 Codex plugin 安装会在项目或用户目录写入配置/技能文件。不要把这一点写成已在本用户环境验证。
+
+### 本条来源链接
+
+- 仓库（github.com/mrsharpoblunto）：<https://github.com/mrsharpoblunto/so-hot-right-now>（2026-11-26 打开为 HTTP 200）
+- Git tag 页（不是正式 GitHub Release 对象）：<https://github.com/mrsharpoblunto/so-hot-right-now/releases/tag/v0.2.0>（2026-11-26 打开为 HTTP 200，页面为 tagged this。同日 GitHub Releases API `GET /repos/mrsharpoblunto/so-hot-right-now/releases` 返回 HTTP 200 且正文为 `[]`，`releases/tags/v0.2.0` 返回 HTTP 404）
+- npm 包页（www.npmjs.com）：<https://www.npmjs.com/package/@thestraylight/so-hot-right-now>（2026-11-26 直接请求返回 HTTP 403，页面为 Cloudflare 拦截，不记成页面不存在；包与版本以 registry 为准）
+- npm registry：<https://registry.npmjs.org/@thestraylight/so-hot-right-now>（2026-11-26 打开为 HTTP 200；`dist-tags.latest` 为 0.2.0；0.2.0 发布于 2026-11-25T22:51:21.455Z；`gitHead` 为 `3567b1977aa33a69656f881b1530e5a7c72c7099`）
+- jsDelivr package.json（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@thestraylight/so-hot-right-now@0.2.0/package.json>（2026-11-26 打开为 HTTP 200，version 0.2.0，license MIT）
+- jsDelivr README（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@thestraylight/so-hot-right-now@0.2.0/README.md>（2026-11-26 打开为 HTTP 200）
+- LICENSE（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/LICENSE>（2026-11-26 打开为 HTTP 200，MIT License）
+- README（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/README.md>（2026-11-26 打开为 HTTP 200）
+- package.json（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/package.json>（2026-11-26 打开为 HTTP 200）
+- plugin.json（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/.claude-plugin/plugin.json>（2026-11-26 打开为 HTTP 200，version 0.2.0，license MIT）
+- marketplace.json（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/.claude-plugin/marketplace.json>（2026-11-26 打开为 HTTP 200）
+- hot-paths SKILL.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/skills/hot-paths/SKILL.md>（2026-11-26 打开为 HTTP 200）
+- hot-paths-setup SKILL.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/skills/hot-paths-setup/SKILL.md>（2026-11-26 打开为 HTTP 200）
+- rules.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/plugins/so-hot-right-now/skills/hot-paths/rules.md>（2026-11-26 打开为 HTTP 200）
+- docs/plugins.md（tag v0.2.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.2.0/docs/plugins.md>（2026-11-26 打开为 HTTP 200）
+- LICENSE（tag v0.2.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.2.0/LICENSE>（2026-11-26 打开为 HTTP 200）
+- README（tag v0.2.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.2.0/README.md>（2026-11-26 打开为 HTTP 200）
+- package.json（tag v0.2.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.2.0/package.json>（2026-11-26 打开为 HTTP 200）
+
+## 2026-11-27 新增
+
+本轮 2 条。不是基础查阅资源，不进入基础查阅资源表。评估为文档核对。未在本用户项目试用，未安装。以下依赖与权限只记录文档所述，本仓库不安装、不执行。
+
+### game-audio-free v0.1.0
+
+- 资源：game-audio-free v0.1.0（仓库 YakirLove/game-audio-free）
+- 类型：游戏音频 Agent Skill（文档写明适用于 Codex 与 Claude Code），不是基础查阅文档，也不是官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是 2026-11-25 首次打 tag 的公开版本，用来补音效/音频流程缺口，且路径与已记录的 sfx-skill v0.2.0 不同：本工具按游戏事件复用已有音频、本地合成、检索可免费使用的素材，或走有免费额度的云端模型，并写入相对路径的事件清单 `assets/audio/audio-manifest.json`。文档列出五类：plinkfx 本地合成短交互/奖励音（预设 CC0，首次会按需获取 pinned `plinkfx@0.3.0`）；sfx-sources 联网检索脚步/齿轮等录音（按原格式保存，压缩音频校验需要 ffmpeg）；Stable Audio 3 Small-SFX 可选本地生成独特效果（需单独 checkout、模型访问；免费社区许可的商用受年度营收门槛约束，文档写 USD 1 million）；Google Lyria RealTime 生成器乐背景；Gemini TTS 生成台词/播报。安装示例为在游戏项目根目录 `npx skills add YakirLove/game-audio-free`。终端示例中，Codex 项目级脚本目录为 `.agents/skills/game-audio-free/scripts`，Claude Code 为 `.claude/skills/game-audio-free/scripts`。基础合成需要 Python 3.10+、Node.js 18+ 和 npm。云端两条用使用者自己的 `GEMINI_API_KEY`，经 `uv run --script` 按需准备 Python 3.11+ 与 pinned `google-genai==3.6.1`；文档写若预算仅限免费额度应使用免费层项目密钥，不要自动改用付费模型。Lyria RealTime 为实验预览，配额与定价可能调整；默认 Flash TTS 模型有免费层，启用结算的项目可能计费。下载素材会记录 source_url、source_id、license 与所需 credit；`--loop` 只标记待核循环，需实际确认接缝后才用 `confirm-loop` 写入 `loop_verified`。README 写作者在临时游戏项目中生成并解码了投币、胜利提示和 Mixkit 齿轮锁定声，并检查了重复运行复用；Lyria 与 Gemini TTS 使用模拟服务响应验证；Stable Audio 只验证了命令参数及缺少 CLI 的处理，真实推理需要模型访问。这些是作者自述，不能当作本用户项目的试用通过。已核来源未点名 Cocos Creator。game-audio-free 仓库编写的 Skill 与脚本为 MIT；音频素材、上游工具和模型分别遵循其发布者条款。
+- 发布/更新日：仓库创建于 2026-11-25T03:26:31Z。GitHub Release `v0.1.0` 发布于 2026-11-25T03:28:08Z（Asia/Shanghai 为 2026-11-25 11:28）。git tag `v0.1.0` 指向 commit `40eadabc936798c1cb68d1eb830cf440366ba6e1`。本条以 v0.1.0 为准。
+- 来源链接：见下方本条来源链接。下列链接在 2026-11-27 打开为 HTTP 200，除非另有说明。除仓库首页与 Release 页外，源码与文档链接指向 tag `v0.1.0`。
+- 核实日（Asia/Shanghai）：2026-11-27
+- 引擎版本与平台：已核文档未点名 Cocos Creator，也未点名微信、TapTap 等小游戏目标。默认把结果写到游戏项目的 `assets/audio/`，可用 `--out-dir` 更换。目标平台待确认。Creator 兼容性待确认。运行在开发者本机的技能/脚本，不是游戏运行时依赖。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.1.0 的 LICENSE 为 MIT License（Copyright (c) 2026 YakirLove）。game-audio-free 仓库编写的 Skill 和脚本采用该许可。音频素材、上游工具和模型分别遵循其发布者的条款（文档举例：plinkfx 预设 CC0；sfx-sources 按素材原许可，含 Mixkit Sound Effects Free License、Freesound CC0/CC BY；Stable Audio 社区许可有商用营收门槛）。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. 基础音效：Python 3.10+、Node.js 18+、npm。安装示例 `npx skills add YakirLove/game-audio-free`。
+  2. 合成命令会按需获取 pinned plinkfx npm CLI（文档写 `plinkfx@0.3.0`）。相同输入会复用已校验文件。
+  3. 检索/下载走网络；压缩音频校验需要 ffmpeg。首次搜索会把校验过的上游 Python helper 缓存到 `~/.cache/game-audio-free/`（或 `XDG_CACHE_HOME`）。可用 `GAME_AUDIO_FREE_SFX_SCRIPT` 指向已有 `scripts/sfx.py`。
+  4. Stable Audio 路线可选：需单独按上游说明安装 CLI、`uv sync`、Hugging Face 访问 Small-SFX 权重（可能 `hf auth login`），首次推理会下载模型。
+  5. Google 音乐/语音：环境变量 `GEMINI_API_KEY` 必须是使用者自己的密钥。`uv run --script` 在隔离环境准备 SDK；或在 Python 3.11+ 虚拟环境安装 `google-genai==3.6.1`。不要把密钥写入本仓库。文档写不要自动改用付费模型。
+  6. 上述安装与脚本会在项目目录写入技能文件和 `assets/audio/` 下的音频与清单，也可能写入用户缓存目录。不要写成已在本用户环境执行或验证。
+
+### 本条来源链接
+
+- 仓库（github.com/YakirLove）：<https://github.com/YakirLove/game-audio-free>（2026-11-27 打开为 HTTP 200）
+- GitHub Release v0.1.0（github.com/YakirLove）：<https://github.com/YakirLove/game-audio-free/releases/tag/v0.1.0>（2026-11-27 打开为 HTTP 200；发布于 2026-11-25T03:28:08Z）
+- LICENSE（tag v0.1.0 raw）：<https://raw.githubusercontent.com/YakirLove/game-audio-free/v0.1.0/LICENSE>（2026-11-27 打开为 HTTP 200，MIT License）
+- LICENSE（tag v0.1.0 blob）：<https://github.com/YakirLove/game-audio-free/blob/v0.1.0/LICENSE>（2026-11-27 打开为 HTTP 200）
+- README.md（tag v0.1.0 raw）：<https://raw.githubusercontent.com/YakirLove/game-audio-free/v0.1.0/README.md>（2026-11-27 打开为 HTTP 200）
+- README.md（tag v0.1.0 blob）：<https://github.com/YakirLove/game-audio-free/blob/v0.1.0/README.md>（2026-11-27 打开为 HTTP 200）
+- README.en.md（tag v0.1.0 raw）：<https://raw.githubusercontent.com/YakirLove/game-audio-free/v0.1.0/README.en.md>（2026-11-27 打开为 HTTP 200）
+- SKILL.md（tag v0.1.0 raw）：<https://raw.githubusercontent.com/YakirLove/game-audio-free/v0.1.0/skills/game-audio-free/SKILL.md>（2026-11-27 打开为 HTTP 200）
+- SKILL.md（tag v0.1.0 blob）：<https://github.com/YakirLove/game-audio-free/blob/v0.1.0/skills/game-audio-free/SKILL.md>（2026-11-27 打开为 HTTP 200）
+- providers.md（tag v0.1.0 raw）：<https://raw.githubusercontent.com/YakirLove/game-audio-free/v0.1.0/skills/game-audio-free/references/providers.md>（2026-11-27 打开为 HTTP 200）
+- plinkfx（github.com/maximilianfeix）：<https://github.com/maximilianfeix/plinkfx>（2026-11-27 打开为 HTTP 200）
+- plinkfx skill 目录（github.com/maximilianfeix）：<https://github.com/maximilianfeix/plinkfx/tree/main/skills/plinkfx>（2026-11-27 打开为 HTTP 200）
+- sfx-sources（github.com/sxhzju）：<https://github.com/sxhzju/sfx>（2026-11-27 打开为 HTTP 200）
+- Mixkit SFX 许可（mixkit.co）：<https://mixkit.co/license/#sfxFree>（2026-11-27 打开为 HTTP 200）
+- Stable Audio 3（github.com/Stability-AI）：<https://github.com/Stability-AI/stable-audio-3>（2026-11-27 打开为 HTTP 200）
+- Stability 许可（stability.ai）：<https://stability.ai/license>（2026-11-27 打开为 HTTP 200）
+- Small-SFX 权重页（huggingface.co）：<https://huggingface.co/stabilityai/stable-audio-3-small-sfx>（2026-11-27 打开为 HTTP 200）
+- Google RealTime music 文档（ai.google.dev）：<https://ai.google.dev/gemini-api/docs/realtime-music-generation>（2026-11-27 打开为 HTTP 200；最终转到 <https://aistudio.google.com/docs/realtime-music-generation>，仍为 HTTP 200）
+- Gemini speech 文档（ai.google.dev）：<https://ai.google.dev/gemini-api/docs/speech-generation>（2026-11-27 打开为 HTTP 200；最终转到 <https://aistudio.google.com/docs/speech-generation>，仍为 HTTP 200）
+- Google 定价（ai.google.dev）：<https://ai.google.dev/gemini-api/docs/pricing>（2026-11-27 打开为 HTTP 200；最终转到 <https://aistudio.google.com/docs/pricing>，仍为 HTTP 200）
+- Lyria cookbook（github.com/google-gemini）：<https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LyriaRealTime.ipynb>（2026-11-27 打开为 HTTP 200）
+- AI Studio keys 页（aistudio.google.com）：<https://aistudio.google.com/apikey>（2026-11-27 直接请求被重定向到 Google 登录页，不记成页面不存在，也不记成已登录后的内容）
+
+### so-hot-right-now v0.3.0
+
+- 资源：so-hot-right-now v0.3.0（仓库 mrsharpoblunto/so-hot-right-now，npm 包 `@thestraylight/so-hot-right-now`）
+- 类型：TypeScript 热路径检查器 / Agent Skills（文档写明 Codex 与 Claude Code 均可读同一 Agent Skills 格式），与 v0.2.0 条相同；不是基础查阅文档，也不是官方 Codex/Cocos 产品
+- 评估：文档核对
+- 采用结论：这是已记录 v0.2.0 之后的实质更新。2026-11-26 的 so-hot-right-now v0.2.0 条目保持原样。v0.3.0 新增第三个 skill `hot-paths-optimize`：用可测量的循环改数据模型，直到主循环走到符合规则的热路径；并写明不得用 `@hotIgnore` 或 `// hot-path: allow` 描述当前设计来隐瞒问题、不得在未阅读和修复前打 `@hot`、以及保留/回退和停止条件。既有 `hot-paths` 与 `hot-paths-setup` 仍在。安装与技能复制/plugin 命令与 v0.2.0 文档一致（`npx so-hot-right-now skills` 复制到 `.claude/skills/` 与 `.agents/skills/`；也可用 `codex plugin marketplace add mrsharpoblunto/so-hot-right-now` 再 `codex plugin add so-hot-right-now@so-hot-right-now`）。纳入该 tag 的提交还包括：跟随 union receiver 上的调用到各成员方法、跟随重载调用并接受可空 match index，以及把标记过的 inline/container 轮次经验写入文档。检查器主体仍是按 roots 沿类型可解析调用图，查找热路径中的分配、闭包、字符串比较和哈希查找；仍用 baseline。已核来源仍未点名 Cocos Creator。内置 preset 仍为 browser、webgpu、react、audioWorklet，本条不得记成兼容 Cocos。Creator 工程的 TypeScript 版本、tsconfig 布局，以及更新循环能否配置为 roots，仍待确认。未在本用户项目试用。
+- 发布/更新日：git tag `v0.3.0` 指向 commit `c1a52d09d1d303d317351249c8aafe52487dea0b`，该提交时间为 2026-11-26T20:01:17Z。标签页在 2026-11-27 打开为 HTTP 200；同日经 GitHub 已认证接口 `listReleases` 返回空列表 `[]`，`getReleaseByTag(v0.3.0)` 返回 HTTP 404，因此不要写成正式 GitHub Release 对象。发布渠道以 npm 为准。npm `@thestraylight/so-hot-right-now@0.3.0` 发布于 2026-11-26T20:03:51.252Z（Asia/Shanghai 为 2026-11-27 04:03）。registry 的 `dist-tags.latest` 为 0.3.0，该版本 `gitHead` 与上述 tag commit 一致，license 为 MIT。www.npmjs.com 包页直接请求返回 HTTP 403（Cloudflare 拦截页），不记成页面不存在；包与版本以 registry 为准。
+- 来源链接：见下方本条来源链接。除 npm 包页外，下列链接均在 2026-11-27 打开为 HTTP 200。npm 包页直接请求返回 HTTP 403（Cloudflare 拦截页），不记成页面不存在；包与版本以 registry 为准。除仓库首页、npm 包页与 registry 外，源码与文档链接都指向 tag `v0.3.0`。
+- 核实日（Asia/Shanghai）：2026-11-27
+- 引擎版本与平台：已核事实与 v0.2.0 条一致。已核文档未点名 Cocos Creator，也未点名微信、TapTap 等小游戏目标。检查器读取 `tsconfig.json` 所包含的 TypeScript/JavaScript；peer 依赖 TypeScript >= 5.0（文档称支持 5.x、6.x、7.x，并使用项目已安装的 TypeScript 版本）。需要 Node.js >= 22.18。运行在开发者本机的检查/lint 流程，不是游戏运行时依赖。目标平台待确认。Creator 兼容性待确认。
+- 是否已在项目试用：否
+- 是否已安装：否
+- 授权：tag v0.3.0 的 LICENSE 为 MIT License（Copyright (c) 2026 Glenn Conner）。npm 0.3.0 元数据与 `plugins/so-hot-right-now/.claude-plugin/plugin.json`（version 0.3.0）亦标 MIT。以各站点条款为准。
+- 依赖与权限（仅文档所述，本仓库不安装、不执行）：
+  1. 与 v0.2.0 文档所述相同。不要写成已在本用户环境执行。
+  2. 运行时依赖仍为 `picomatch`（tag v0.3.0 的 package.json 写 `^4.0.7`）。
+  3. 文档仍写明：只跟踪类型检查器能解析的调用；经 `any` 或计算属性名的调用会中止向下走图。
+  4. `init`、skills 复制和 Codex plugin 安装会在项目或用户目录写入配置/技能文件。
+
+### 本条来源链接
+
+- 仓库（github.com/mrsharpoblunto）：<https://github.com/mrsharpoblunto/so-hot-right-now>（2026-11-27 打开为 HTTP 200）
+- Git tag 页（不是正式 GitHub Release 对象）：<https://github.com/mrsharpoblunto/so-hot-right-now/releases/tag/v0.3.0>（2026-11-27 打开为 HTTP 200。同日已认证接口 `listReleases` 返回空列表 `[]`，`getReleaseByTag(v0.3.0)` 与 `releases/tags/v0.3.0` 为 HTTP 404）
+- npm 包页（www.npmjs.com）：<https://www.npmjs.com/package/@thestraylight/so-hot-right-now>（2026-11-27 直接请求返回 HTTP 403，页面为 Cloudflare 拦截页，不记成页面不存在；包与版本以 registry 为准）
+- npm registry：<https://registry.npmjs.org/@thestraylight/so-hot-right-now>（2026-11-27 打开为 HTTP 200；`dist-tags.latest` 为 0.3.0；0.3.0 发布于 2026-11-26T20:03:51.252Z；`gitHead` 为 `c1a52d09d1d303d317351249c8aafe52487dea0b`；license 为 MIT）
+- jsDelivr package.json（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@thestraylight/so-hot-right-now@0.3.0/package.json>（2026-11-27 打开为 HTTP 200，version 0.3.0，license MIT）
+- jsDelivr README（cdn.jsdelivr.net）：<https://cdn.jsdelivr.net/npm/@thestraylight/so-hot-right-now@0.3.0/README.md>（2026-11-27 打开为 HTTP 200）
+- LICENSE（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/LICENSE>（2026-11-27 打开为 HTTP 200，MIT License）
+- README（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/README.md>（2026-11-27 打开为 HTTP 200）
+- package.json（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/package.json>（2026-11-27 打开为 HTTP 200）
+- plugin.json（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/plugins/so-hot-right-now/.claude-plugin/plugin.json>（2026-11-27 打开为 HTTP 200，version 0.3.0，license MIT）
+- marketplace.json（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/.claude-plugin/marketplace.json>（2026-11-27 打开为 HTTP 200）
+- hot-paths SKILL.md（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/plugins/so-hot-right-now/skills/hot-paths/SKILL.md>（2026-11-27 打开为 HTTP 200）
+- hot-paths-setup SKILL.md（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/plugins/so-hot-right-now/skills/hot-paths-setup/SKILL.md>（2026-11-27 打开为 HTTP 200）
+- hot-paths-optimize SKILL.md（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/plugins/so-hot-right-now/skills/hot-paths-optimize/SKILL.md>（2026-11-27 打开为 HTTP 200）
+- rules.md（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/plugins/so-hot-right-now/skills/hot-paths/rules.md>（2026-11-27 打开为 HTTP 200）
+- docs/plugins.md（tag v0.3.0 raw）：<https://raw.githubusercontent.com/mrsharpoblunto/so-hot-right-now/v0.3.0/docs/plugins.md>（2026-11-27 打开为 HTTP 200）
+- LICENSE（tag v0.3.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.3.0/LICENSE>（2026-11-27 打开为 HTTP 200）
+- README（tag v0.3.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.3.0/README.md>（2026-11-27 打开为 HTTP 200）
+- package.json（tag v0.3.0 blob）：<https://github.com/mrsharpoblunto/so-hot-right-now/blob/v0.3.0/package.json>（2026-11-27 打开为 HTTP 200）

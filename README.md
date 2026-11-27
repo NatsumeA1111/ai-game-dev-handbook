@@ -43,6 +43,12 @@
 2026-11-16 新增 8 项可复用实践详解（文档核对，未试用）。
 2026-11-17 新增 Cocos MCP AI Master v1.0.0（文档核对）。
 2026-11-18 新增 awesome-gamedev-agent-skills v2.0.0（文档核对）。
+2026-11-19 新增 Funplay MCP for Cocos v0.7.5（文档核对）。
+2026-11-24 新增 @alanwalk/cocos-cli v1.0.0（文档核对）。
+2026-11-25 新增 sfx-skill v0.2.0（文档核对）。
+2026-11-26 新增 so-hot-right-now v0.2.0（文档核对）。
+2026-11-27 新增 game-audio-free v0.1.0（文档核对）。
+2026-11-27 新增 so-hot-right-now v0.3.0（文档核对）。
 
 ## 本库校验
 
